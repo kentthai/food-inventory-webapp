@@ -139,7 +139,7 @@
 
 /* Add a color to the active/current link */
 .navbar .tab.active {
-  background-color: #4CAF50;
+  background-color: #ddd;
   color: white;
 }
 
