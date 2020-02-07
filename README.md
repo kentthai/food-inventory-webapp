@@ -1,1 +1,4 @@
-# cse170-a5
+CSE 170 A5
+=====
+
+Quick prototype for food storage application
