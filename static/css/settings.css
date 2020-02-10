@@ -1,11 +1,30 @@
 .qr_display {
+  text-align: center;
+}
+
+.qr_display img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.qr_display p {
+.houses {
   text-align: center;
+}
+
+.house {
+  background-color: rgb(207, 207, 207);
+
+  font-size: 15pt;
+
+  padding: 10px 0px 10px 0px;
+
+  margin: 10px 150px 10px 150px;
+}
+
+.house.active {
+  background-color: rgb(149, 255, 62);
+  /* color: white; */
 }
 
 .hidden {
@@ -16,8 +35,10 @@
   /* height: 2436px; */
   /* width: 1125px; */
   /* background-color: powderblue; */
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+
+  font-family: Helvetica;
 }
 
 
