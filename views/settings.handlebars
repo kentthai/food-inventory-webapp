@@ -27,14 +27,14 @@
 
       <div class="houses">
         <h1>Your Houses</h1>
-
-        <div class="house active">
-          The Boys
-     id = {{id}}    </div>
-
-        <div class="house">
+        {{#each houses}}
+        <div class="house" id = {{id}} >
+          {{name}}
+      </div>
+      {{/each}}
+        <!-- <div class="house">
           Parents' House
-        </div>
+        </div> -->
       </div>
 
 
