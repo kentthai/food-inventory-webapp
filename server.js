@@ -10,6 +10,12 @@ var PORT = 3000;
 // Express is a web framework for node.js
 // that makes nontrivial applications easier to build
 var express = require('express');
+var http = require('http');
+var path = require('path');
+var handlebars = require('express-handlebars')
+
+// Route
+var index = require('./routes/index');
 
 // Create the server instance
 var app = express();
@@ -24,8 +30,43 @@ app.use(express.compress());
 // maps to /static/index.html on this machine
 app.use(express.static(__dirname + '/static'));
 
+
+// all environments
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', handlebars());
+app.set('view engine', 'handlebars');
+app.use(express.favicon());
+app.use(express.logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.methodOverride());
+app.use(express.cookieParser('Intro HCI secret key'));
+app.use(express.session());
+app.use(app.router);
+
+// development only
+if ('development' == app.get('env')) {
+  app.use(express.errorHandler());
+}
+
+// Add routes here
+app.get('/', index.view);
+// Example route
+// app.get('/add', add.addFriend);
+
+
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});
+
+/*
+
 // Start the server
 var port = process.env.PORT || PORT; // 80 for web, 3000 for development
 app.listen(port, function() {
 	console.log("Node.js server running on port %s", port);
 });
+
+
+*/

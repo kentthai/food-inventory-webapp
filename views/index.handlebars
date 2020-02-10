@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/home.css">
+  </head>
+  <body>
+
+    <div class="container">
+
+      {{#each foodItems}}
+        <div class="square" id="{{id}}">
+          <div class="picture">
+            <img src="{{imageURL}}" alt="{{imageName}}"></img>
+          </div>
+
+          <div class="options">
+
+            <div class="option" id="share">
+              <a href="#share">
+                <img src="images/icons/share.svg" alt="share" class="button"></img>
+              </a>
+            </div>
+
+            <div class="option" id="remove">
+              <a href="#remove" class="remove">
+                <img src="images/icons/remove.svg" alt="remove" class="button remove" id={{id}}></img>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      {{/each}}
+
+      <div class="add">
+        <div class="picture">
+          <a href="#add">
+            <img src="images/icons/add.png" alt="add"></img>
+          </a>
+        </div>
+      </div>
+
+<!--
+      <div id="addForm">
+
+        <h1>Add an item</h1>
+        <small>I'll get back to you as quickly as possible</small>
+
+        <form action="#">
+          <input placeholder="Name" type="text" required />
+          <input placeholder="Email" type="email" required />
+          <input placeholder="Subject" type="text" required />
+          <textarea placeholder="Comment"></textarea>
+          <input class="formBtn" type="submit" />
+          <input class="formBtn" type="reset" />
+        </form>
+      </div>
+       -->
+
+    </div>
+
+
+
+    <div class="navbar">
+      <div class="tab active">
+        <a href="index.html">
+          <img src="images/icons/personal.svg" alt="personal" class="icon"></img>
+        </a>
+        <!-- personal -->
+      </div>
+
+      <div class="tab">
+        <a href="group.html">
+          <img src="images/icons/group.svg" alt="group" class="icon"></img>
+        </a>
+      </div>
+
+      <div class="tab">
+        <a href="#camera">
+          <img src="images/icons/camera.svg" alt="camera" class="icon"></img>
+        </a>
+      </div>
+
+      <div class="tab">
+        <a href="settings.html">
+          <img src="images/icons/settings.svg" alt="settings" class="icon"></img>
+        </a>
+      </div>
+    </div>
+
+
+    <script src="js/home.js"></script>
+  </body>
+</html>
+
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
