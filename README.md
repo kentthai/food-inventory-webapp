@@ -1,4 +1,4 @@
-CSE 170 A5
+Food Inventory Webapp
 =====
 
-Quick prototype for food storage application
+A food inventory application that you can use with your roommates to save food.
