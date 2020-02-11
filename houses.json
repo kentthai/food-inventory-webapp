@@ -1,11 +1,11 @@
 {
 	"houses": [
 		{
-			"id": "theBoys",
+			"id": "1",
 			"name": "The Boys"
 		},
     {
-      "id": "parent",
+      "id": "2",
       "name":"Parent's House"
     }
 	]
