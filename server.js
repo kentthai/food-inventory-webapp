@@ -16,7 +16,7 @@ var handlebars = require('express-handlebars')
 
 // Route
 var index = require('./routes/index');
-
+var settings = require('./routes/settings');
 // Create the server instance
 var app = express();
 
@@ -54,6 +54,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.get('/settings', settings.view);
 // Example route
 // app.get('/add', add.addFriend);
 
