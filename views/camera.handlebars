@@ -15,61 +15,12 @@
 
     <div class="container">
 
-      {{#each foodItems}}
-        <div class="square" id="{{id}}">
-          <div class="picture">
-            <img src="{{imageURL}}" alt="{{imageName}}"></img>
-          </div>
-
-          <div class="options">
-
-            <div class="option" id="share">
-              <a href="#share">
-                <img src="images/icons/share.svg" alt="share" class="button"></img>
-              </a>
-            </div>
-
-            <div class="option" id="remove">
-              <a href="#remove" class="remove">
-                <img src="images/icons/remove.svg" alt="remove" class="button remove" id={{id}}></img>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      {{/each}}
-
-      <div class="add">
-        <div class="picture">
-          <a href="#add">
-            <img src="images/icons/add.png" alt="add"></img>
-          </a>
-        </div>
-      </div>
-
-<!--
-      <div id="addForm">
-
-        <h1>Add an item</h1>
-        <small>I'll get back to you as quickly as possible</small>
-
-        <form action="#">
-          <input placeholder="Name" type="text" required />
-          <input placeholder="Email" type="email" required />
-          <input placeholder="Subject" type="text" required />
-          <textarea placeholder="Comment"></textarea>
-          <input class="formBtn" type="submit" />
-          <input class="formBtn" type="reset" />
-        </form>
-      </div>
-       -->
+       <input type="file" accept="image/*" capture="camera">
 
     </div>
 
-
-
     <div class="navbar">
-      <div class="tab active">
+      <div class="tab">
         <a href="/">
           <img src="images/icons/personal.svg" alt="personal" class="icon"></img>
         </a>
@@ -82,7 +33,7 @@
         </a>
       </div>
 
-      <div class="tab">
+      <div class="tab active">
         <a href="/camera">
           <img src="images/icons/camera.svg" alt="camera" class="icon"></img>
         </a>

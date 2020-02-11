@@ -18,6 +18,8 @@ var handlebars = require('express-handlebars')
 var index = require('./routes/index');
 var settings = require('./routes/settings');
 var group = require('./routes/group');
+var camera = require('./routes/camera');
+
 // Create the server instance
 var app = express();
 
@@ -57,6 +59,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/settings', settings.view);
 app.get('/group', group.view);
+app.get('/camera', camera.view);
 // Example route
 // app.get('/add', add.addFriend);
 
