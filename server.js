@@ -20,6 +20,8 @@ var settings = require('./routes/settings');
 var group = require('./routes/group');
 var camera = require('./routes/camera');
 
+var add = require('./routes/add');
+
 // Create the server instance
 var app = express();
 
@@ -60,6 +62,7 @@ app.get('/', index.view);
 app.get('/settings', settings.view);
 app.get('/group', group.view);
 app.get('/camera', camera.view);
+app.get('/add', add.add);
 // Example route
 // app.get('/add', add.addFriend);
 

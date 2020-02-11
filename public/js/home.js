@@ -42,6 +42,8 @@ container.addEventListener('click', function(event) {
 
 }, false);
 
+
+// Reveals add form
 add.addEventListener('click', function(event){
 	event.preventDefault();
 	var addBox = document.querySelector("#addForm");
@@ -51,12 +53,18 @@ add.addEventListener('click', function(event){
 
 }, false);
 
+// Close form on cancel
 cancel.addEventListener('click', function(event){
 	event.preventDefault();
 	var addBox = document.querySelector("#addForm");
 	addBox.classList.add("hidden");
 },false);
 
+// Close form on OK
 ok.addEventListener('click', function(event){
-	event.preventDefault();
+  event.preventDefault();
+
+  console.log("event: " + event);
+
+
 },false);
