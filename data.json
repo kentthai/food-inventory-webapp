@@ -3,7 +3,7 @@
 		{
 			"id": "1",
 			"imageName": "avocado",
-			"imageURL": "../static/images/food/avocado.png"
+			"imageURL": "../public/images/food/avocado.png"
 		}
 	]
 }
