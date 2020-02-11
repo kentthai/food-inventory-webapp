@@ -1,0 +1,9 @@
+{
+	"foodItems": [
+		{
+			"id": "1",
+			"imageName": "banana",
+			"imageURL": "images/food/banana.png"
+		}
+	]
+}
