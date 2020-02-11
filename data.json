@@ -3,7 +3,22 @@
 		{
 			"id": "1",
 			"imageName": "avocado",
-			"imageURL": "../public/images/food/avocado.png"
+			"imageURL": "images/food/avocado.png"
+		},
+		{
+			"id": "2",
+			"imageName": "banana",
+			"imageURL": "images/food/banana.png"
+		},
+		{
+			"id": "2",
+			"imageName": "cherry",
+			"imageURL": "images/food/cherry.png"
+		},
+		{
+			"id": "4",
+			"imageName": "coconut",
+			"imageURL": "images/food/coconut.png"
 		}
 	]
 }
