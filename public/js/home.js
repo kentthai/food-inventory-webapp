@@ -56,3 +56,7 @@ cancel.addEventListener('click', function(event){
 	var addBox = document.querySelector("#addForm");
 	addBox.classList.add("hidden");
 },false);
+
+ok.addEventListener('click', function(event){
+	event.preventDefault();
+},false);
