@@ -1,0 +1,12 @@
+{
+	"houses": [
+		{
+			"id": "theBoys",
+			"name": "The Boys"
+		},
+    {
+      "id": "parent",
+      "name":"Parent's House"
+    }
+	]
+}
