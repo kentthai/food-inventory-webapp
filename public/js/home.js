@@ -1,5 +1,9 @@
 // Add event listener to remove button
 const container = document.querySelector(".container");
+const add = document.querySelector(".add");
+const cancel = document.querySelector(".CancelButton");
+const ok = document.querySelector(".OkButton");
+
 container.addEventListener('click', function(event) {
 
 	// Don't follow the link
@@ -38,3 +42,17 @@ container.addEventListener('click', function(event) {
 
 }, false);
 
+add.addEventListener('click', function(event){
+	event.preventDefault();
+	var addBox = document.querySelector("#addForm");
+	console.log("checkBefore");
+	addBox.classList.remove("hidden");
+	console.log("checkAfter");
+
+}, false);
+
+cancel.addEventListener('click', function(event){
+	event.preventDefault();
+	var addBox = document.querySelector("#addForm");
+	addBox.classList.add("hidden");
+},false);
