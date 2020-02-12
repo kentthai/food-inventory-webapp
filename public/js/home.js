@@ -45,9 +45,7 @@ container.addEventListener('click', function(event) {
 add.addEventListener('click', function(event){
 	event.preventDefault();
 	var addBox = document.querySelector("#addForm");
-	console.log("checkBefore");
 	addBox.classList.remove("hidden");
-	console.log("checkAfter");
 
 }, false);
 
