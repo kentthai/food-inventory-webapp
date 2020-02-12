@@ -1,3 +1,7 @@
+.background {
+  background-color: #EEEEEE;
+}
+
 .qr_display {
   text-align: center;
 }
@@ -43,7 +47,7 @@
 
 
 .navbar {
-  background-color: #333;
+  background-color: #ffffff;
   /* overflow: hidden; */
   position: fixed;
   bottom: 0;
