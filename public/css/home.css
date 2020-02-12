@@ -89,7 +89,7 @@
 
 .options .option .button{
   height: 15px;
-  width: 25px;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
