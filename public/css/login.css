@@ -1,0 +1,123 @@
+.button {
+  margin: auto;
+  width: 270px;
+  height: 85px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  margin-top: 1em;
+}
+
+.buttonShort{
+  margin-top: 1em;
+  width: 95%;
+  height: 57px;
+  background: #000000;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.container {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 1em;
+}
+
+.black {
+  background: #000000;
+}
+
+
+.buttonText{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: auto, auto;
+}
+
+.short{
+  margin: auto;
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 16px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.white{
+  color: #fff;
+}
+
+.icon{
+  height: 200px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.formBox{
+  width: 95%;
+  height: 57px;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  margin-bottom: 0em;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  text-indent: 20px;
+}
+
+.back{
+  margin-top: 4em;
+  width: 20;
+  left: 18px;
+  top: 65.94px;
+}
+
+.qrText{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-top: -0.5em;
+  color: #000000;
+}
+
+h2{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+  color: #000000;
+  margin-bottom: 0.5em;
+}
+
+a
+{
+  text-decoration: none;
+  color: #000000;
+}
+
+.topSpace{
+  margin-top: 15em ;
+}

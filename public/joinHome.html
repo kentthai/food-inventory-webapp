@@ -12,19 +12,33 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
   <div class="container">
+    <a href="openScreen.html">
+      <div class="back">
+        <img src="images/icons/back.svg" alt="back"></img>
+      </div>
+    </a>
+    <h2 class="headerText">Join Home</h2>
+    <div>
+      <form role="form" method="post">
+        <input placeholder="Name" type="name" required class="formBox" />
+        <br>
+        <input placeholder="Room Code" type="text" class="formBox"/>
+      </form>
+    </div>
 
-    <button> Scan Code </button>
-
-    <form role="form" method="post">
-      <input placeholder="Room Code" type="text" />
-      <input placeholder="Name" type="name" required />
-    </form>
+    <a href="index.html">
+      <div class="buttonShort">
+        <p class="buttonText short white">Next</p>
+      </div>
+    </a>
+    
+      <button> Scan Code </button>
 
   </div>
 
