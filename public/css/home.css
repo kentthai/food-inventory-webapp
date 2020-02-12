@@ -100,7 +100,6 @@
 
 /* Change the color of links on hover */
 .options .option:hover {
-  background-color: #ddd;
   color: black;
 }
 
@@ -141,19 +140,17 @@
 
 /* Change the color of links on hover */
 .navbar .tab:hover {
-  background-color: #ddd;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .navbar .tab.active {
-  background-color: #ddd;
   color: white;
 }
 
 .icon{
   height: 50px;
-  width: 50px;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
