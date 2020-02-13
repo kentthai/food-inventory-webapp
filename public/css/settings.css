@@ -4,26 +4,66 @@
 
 .qr_display {
   text-align: center;
+  background: #fff;
+  width: 90%;
+  margin: auto;
+  border-top: 2em;
+  border-radius: 18px;
 }
 
 .qr_display img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  margin-top: -3em;
+  margin-bottom: -3em;
+}
+
+
+h1 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000000;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000000;
+  padding: 20px 0px 20px 0px;
+
 }
 
 .houses {
   text-align: center;
+  margin-top: -2em;
 }
 
 .house {
-  background-color: rgb(207, 207, 207);
-
-  font-size: 15pt;
-
   padding: 10px 0px 10px 0px;
+  margin: auto;
+  margin-top: 20px;
+  width: 90%;
+  background: #FFFFFF;
+  border-radius: 6px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000000;
 
-  margin: 10px 150px 10px 150px;
 }
 
 .house.active {
