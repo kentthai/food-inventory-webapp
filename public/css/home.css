@@ -41,10 +41,10 @@
   /* display: none; */
 }
 
-.square {
+.box {
   /* height: 200px; */
   /* width: 200px; */
-  /* height: 100px; */
+  height: 120px;
   width: 90%;
   /* margin: 50px 50px 50px 50px; */
   /* margin: 10px 10px 10px 10px; */
@@ -66,16 +66,19 @@
   display: flex;
 }
 
-.square .picture {
-  width: 90%;
+.box .picture {
+  width: 30%;
+  float: left;
 }
 
-.square img {
+.box img {
   /* display: block; */
   /* margin: auto; */
   /* text-align: center; */
   /* margin-top: 10%; */
-  margin-left: 0;
+  height: 70%;
+  margin-top: 1em;
+  margin-left: 15%;
 }
 
 .options {
@@ -109,6 +112,22 @@
   display: block;
 }
 
+.boxText{
+  width: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
+  float: right;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 42px;
+  color: #000000;
+
+}
 
 /* Change the color of links on hover */
 .options .option:hover {
