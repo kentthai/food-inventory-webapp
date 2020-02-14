@@ -8,8 +8,6 @@ exports.personal = function(request, response) {
   console.log("personal:");
   console.log(personal["foodItems"]);
 
-  var food = personal["foodItems"][foodID-1]; // of by one, our first project has index 0
-
   delete personal["foodItems"][foodID-1];
 
   delete require.cache[require.resolve('../data.json')]
@@ -28,10 +26,6 @@ exports.group = function(request, response) {
   console.log("group: ");
   console.log(group["foodItems"]);
 
-  var groupFood = group["foodItems"][groupFoodID-1]; // of by one, our first project has index 0
-
-  foods.foodItems.push(groupFood);
-
   delete group["foodItems"][groupFoodID-1];
 
   delete require.cache[require.resolve('../group.json')]
@@ -39,6 +33,6 @@ exports.group = function(request, response) {
   console.log("group: ");
   console.log(group["foodItems"]);
 
-  response.json(groupFood);
-	//response.render('index', foods["foodItems"]);
+  //response.json(groupFood);
+	response.render('index', group);
 }
