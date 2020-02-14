@@ -140,6 +140,8 @@ ok.addEventListener('click', function(event){
 
   $.get(url+"/add/"+foodName, addCallback);
 
+
+
 },false);
 
 function addCallback(response) {
@@ -149,5 +151,5 @@ function addCallback(response) {
 	console.log(id + " " + imageName + " " + imageURL);
 
   //$("#project" + id + " .details").html(projectHTML);
-  //location.reload();
+  location.reload();
 }
