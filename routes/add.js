@@ -12,7 +12,8 @@ exports.addPersonal = function(request, response) {
 
 	// Generate id
 	var set = new Set();
-	for (let i = 0; i < foods.foodItems.length; i += 1) {
+	var i;
+	for (i = 0; i < foods.foodItems.length; i += 1) {
 		if (foods.foodItems[i] != null) {
 			set.add(parseInt(foods.foodItems[i]["id"]));
 		}
@@ -53,7 +54,8 @@ exports.addGroup = function(request, response) {
 
 	// Generate id
 	var set = new Set();
-	for (let i = 0; i < group.foodItems.length; i += 1) {
+	var i;
+	for (i = 0; i < group.foodItems.length; i += 1) {
 		if (foods.foodItems[i] != null) {
 			set.add(parseInt(group.foodItems[i]["id"]));
 		}
