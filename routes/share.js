@@ -1,0 +1,31 @@
+var foods = require('../data.json');
+
+var group = require('../group.json');
+
+exports.foodInfo = function(request, response) {
+	var foodID = request.params.id;
+  foodID = parseInt(foodID);
+
+  console.log("personal:");
+  console.log(foods["foodItems"]);
+
+  console.log("group: ");
+  console.log(group["foodItems"]);
+
+  var latestId = group["foodItems"].length;
+
+  var food = foods["foodItems"][foodID-1]; // of by one, our first project has index 0
+  food["id"] = latestId;
+
+  group.foodItems.push(food);
+
+  delete foods["foodItems"][foodID-1];
+
+  delete require.cache[require.resolve('../data.json')]
+
+  console.log("personal:");
+  console.log(foods["foodItems"]);
+
+  response.json(foods);
+	//response.render('index', foods["foodItems"]);
+}

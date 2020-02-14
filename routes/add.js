@@ -1,9 +1,13 @@
 var food = require("../data.json");
 
-exports.add = function(request, response) {
+exports.addFood = function(request, response) {
+
+	console.log("test");
 
 	var name = request.query.name;
 	// var description = request.query.description;
+
+	console.log("name = " + name);
 
   var imageURL = "images/food/" + name + ".png";
 
@@ -17,5 +21,5 @@ exports.add = function(request, response) {
 
 	food.foodItems.push(food);
 
-	response.render('index', data);
+	response.render('index', food);
 }
