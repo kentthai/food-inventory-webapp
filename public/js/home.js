@@ -1,6 +1,6 @@
 'use strict';
 
-const url = "http://localhost:3000";
+const url = "https://cse170-a5.herokuapp.com";
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
