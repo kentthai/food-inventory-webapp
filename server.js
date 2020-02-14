@@ -20,6 +20,9 @@ var settings = require('./routes/settings');
 var group = require('./routes/group');
 var camera = require('./routes/camera');
 
+// Login routes
+var open = require('./routes/open');
+
 var share = require('./routes/share');
 var claim = require('./routes/claim');
 
@@ -63,7 +66,9 @@ if ('development' == app.get('env')) {
 }
 
 // Add routes here
-app.get('/', index.view);
+app.get('/', open.view);
+
+app.get('/home', index.view);
 app.get('/settings', settings.view);
 app.get('/group', group.view);
 app.get('/camera', camera.view);
