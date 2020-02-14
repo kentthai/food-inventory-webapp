@@ -11,17 +11,17 @@ exports.addPersonal = function(request, response) {
   var imageURL = "images/food/" + name + ".png";
 
 	// Generate id
-	var set = new Set();
+	var set = [];
 	var i;
 	for (i = 0; i < foods.foodItems.length; i += 1) {
 		if (foods.foodItems[i] != null) {
-			set.add(parseInt(foods.foodItems[i]["id"]));
+			set.push(parseInt(foods.foodItems[i]["id"]));
 		}
 	}
 	console.log(set);
 
 	var id = 1;
-	while (set.has(id)) {
+	while (set.includes(id)) {
 		id += 1;
 	}
 
@@ -53,17 +53,17 @@ exports.addGroup = function(request, response) {
   var imageURL = "images/food/" + name + ".png";
 
 	// Generate id
-	var set = new Set();
+	var set = [];
 	var i;
 	for (i = 0; i < group.foodItems.length; i += 1) {
 		if (foods.foodItems[i] != null) {
-			set.add(parseInt(group.foodItems[i]["id"]));
+			set.push(parseInt(group.foodItems[i]["id"]));
 		}
 	}
 	console.log(set);
 
 	var id = 1;
-	while (set.has(id)) {
+	while (set.includes(id)) {
 		id += 1;
 	}
 
