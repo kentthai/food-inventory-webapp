@@ -44,12 +44,15 @@ exports.addGroup = function(request, response) {
 
 	console.log("name = " + name);
 
+	console.log(group);
+	console.log("length = " + group.foodItems.length);
+
   var imageURL = "images/food/" + name + ".png";
 
 	// Generate id
 	var set = new Set();
-	for (let i = 0; i < foods.foodItems.length; i += 1) {
-		set.add(parseInt(foods.foodItems[i]["id"]));
+	for (let i = 0; i < group.foodItems.length; i += 1) {
+		set.add(parseInt(group.foodItems[i]["id"]));
 	}
 	console.log(set);
 
