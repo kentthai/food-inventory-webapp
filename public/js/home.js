@@ -13,6 +13,7 @@ $(document).ready(function() {
 function initializePage() {
 	$('.move').click(moveItem);
 
+  $('.remove').click(removeItem);
 }
 
 function moveItem(e){
@@ -42,6 +43,32 @@ function callBackFn(response) {
   location.reload();
 }
 
+function removeItem(e){
+
+  //e.preventDefault();
+
+  console.log($(this));
+
+  // Get the div ID, e.g., "project3"
+	var itemID = $(this).closest('.remove').attr('id');
+	// get rid of 'food' from the front of the id 'food3'
+	var idNumber = itemID.substr('remove'.length);
+
+  console.log("id = " + idNumber)
+
+  $.get(url+"/removePersonal/"+idNumber, removeCallback);
+}
+
+function removeCallback(response) {
+  var id = response["id"];
+	var imageName = response["imageName"];
+	var imageURL = response["imageURL"];
+	console.log(id + " " + imageName + " " + imageURL);
+
+  //$("#project" + id + " .details").html(projectHTML);
+  $(".square #"+id).remove();
+  location.reload();
+}
 
 
 // Add event listener to remove button
@@ -50,11 +77,7 @@ const add = document.querySelector(".add");
 const cancel = document.querySelector(".CancelButton");
 const ok = document.querySelector(".OkButton");
 
-$(document).on('click', '.move', function (){
-  console.log("MOVE element!");
-});
-
-
+/*
 container.addEventListener('click', function(event) {
 
 	// Don't follow the link
@@ -90,7 +113,7 @@ container.addEventListener('click', function(event) {
   event.stopPropagation();
 
 }, false);
-
+*/
 
 // Reveals add form
 add.addEventListener('click', function(event){
