@@ -14,6 +14,10 @@
   </head>
   <body class="background">
 
+    <style>
+      a { text-decoration: none; }
+    </style>
+
     <div class="container">
 
       <h1>Current House Code</h1>
@@ -31,8 +35,14 @@
         {{#each houses}}
         <div class="house" id = {{id}}>
           {{name}}
-      </div>
-      {{/each}}
+        </div>
+        {{/each}}
+        <a href="/">
+          <div class="house" id="0">
+            +
+          </div>
+        </a>
+
         <!-- <div class="house">
           Parents' House
         </div> -->
