@@ -21,7 +21,7 @@ exports.addPersonal = function(request, response) {
 	console.log(set);
 
 	var id = 1;
-	while (set.includes(id)) {
+	while (set.indexOf(id) >= 0) {
 		id += 1;
 	}
 
