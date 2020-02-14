@@ -74,7 +74,8 @@ app.get('/claim/:id', claim.foodInfo);
 app.get('/removePersonal/:id', remove.personal);
 app.get('/removeGroup/:id', remove.group);
 
-app.get('/add/:name', add.addFood);
+app.get('/addPersonal/:name', add.addPersonal);
+app.get('/addGroup/:name', add.addGroup);
 // Example route
 // app.get('/add', add.addFriend);
 

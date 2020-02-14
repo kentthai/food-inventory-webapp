@@ -138,9 +138,7 @@ ok.addEventListener('click', function(event){
 
   console.log("foodName = " + foodName);
 
-  $.get(url+"/add/"+foodName, addCallback);
-
-
+  $.get(url+"/addPersonal/"+foodName, addCallback);
 
 },false);
 

@@ -125,7 +125,7 @@ add.addEventListener('click', function(event){
 
 }, false);
 
-/*
+
 // Close form on cancel
 cancel.addEventListener('click', function(event){
 	event.preventDefault();
@@ -137,9 +137,20 @@ cancel.addEventListener('click', function(event){
 ok.addEventListener('click', function(event){
   event.preventDefault();
 
-  console.log("event: " + event);
+  var foodName = document.getElementById("foodName").value;
 
+  console.log("foodName = " + foodName);
+
+  $.get(url+"/addGroup/"+foodName, addCallback);
 
 },false);
 
-*/
+function addCallback(response) {
+  var id = response["id"];
+	var imageName = response["imageName"];
+	var imageURL = response["imageURL"];
+	console.log(id + " " + imageName + " " + imageURL);
+
+  //$("#project" + id + " .details").html(projectHTML);
+  location.reload();
+}
