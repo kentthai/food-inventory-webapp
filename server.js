@@ -63,6 +63,15 @@ if ('development' == app.get('env')) {
 }
 
 // Add routes here
+// app.get('/',function(req,res) {
+//   res.sendFile('openScreen.html');
+// });
+// app.get('/new',function(req,res) {
+//   res.sendFile('newHome.html');
+// });
+// app.get('/join',function(req,res) {
+//   res.sendFile('joinHome.html');
+// });
 app.get('/', index.view);
 app.get('/settings', settings.view);
 app.get('/group', group.view);
