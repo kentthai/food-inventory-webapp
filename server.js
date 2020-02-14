@@ -21,6 +21,8 @@ var group = require('./routes/group');
 var camera = require('./routes/camera');
 
 var share = require('./routes/share');
+var claim = require('./routes/claim');
+
 
 var add = require('./routes/add');
 
@@ -66,6 +68,7 @@ app.get('/group', group.view);
 app.get('/camera', camera.view);
 
 app.get('/share/:id', share.foodInfo);
+app.get('/claim/:id', claim.foodInfo);
 
 app.get('/add', add.addFood);
 // Example route

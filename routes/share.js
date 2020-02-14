@@ -12,10 +12,10 @@ exports.foodInfo = function(request, response) {
   console.log("group: ");
   console.log(group["foodItems"]);
 
-  var latestId = group["foodItems"].length;
+  var latestId = group["foodItems"].length+1;
 
   var food = foods["foodItems"][foodID-1]; // of by one, our first project has index 0
-  food["id"] = latestId;
+  food["id"] = latestId.toString();
 
   group.foodItems.push(food);
 
