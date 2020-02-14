@@ -1,6 +1,6 @@
 'use strict';
 
-const url = "https://cse170-a5.herokuapp.com";
+const url = "https://cse170-a6.herokuapp.com";
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
