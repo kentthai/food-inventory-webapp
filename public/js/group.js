@@ -136,7 +136,7 @@ container.addEventListener('click', function(event) {
 
 // Close form on OK
 ok.addEventListener('click', function(event){
-  event.preventDefault();
+  // event.preventDefault();
 
   var foodName = document.getElementById("foodName").value;
 

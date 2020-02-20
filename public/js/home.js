@@ -1,8 +1,7 @@
 'use strict';
 
-//const url = "https://cse170-a6.herokuapp.com";
+// const url = "https://cse170-a6.herokuapp.com";
 const url = "http://localhost:3000";
-
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -79,43 +78,43 @@ const add = document.querySelector(".add");
 const cancel = document.querySelector(".CancelButton");
 const ok = document.querySelector(".OkButton");
 
-/*
-container.addEventListener('click', function(event) {
 
-	// Don't follow the link
-	event.preventDefault();
+// container.addEventListener('click', function(event) {
+//
+// 	// Don't follow the link
+// 	event.preventDefault();
+//
+//   var clickClass = event.target.getAttribute("class");
+//   if (clickClass != null) {
+//     //console.log("class = " + clickClass);
+//
+//     if (clickClass.includes("remove")) {
+//
+//       var targetId = event.target.id;
+//
+//       if (targetId == null) {
+//         console.log("targetId was null: " + event.target);
+//         //targetId = event.target.
+//       } else {
+//         console.log("remove was found with id: " + targetId);
+//
+//
+//         var removeSquare = document.getElementById(targetId);
+//
+//         console.log(removeSquare);
+//
+//         removeSquare.remove();
+//       }
+//     }
+//
+//     // Log the clicked element in the console
+//     //console.log(event.target);
+//   }
+//
+//   event.stopPropagation();
+//
+// }, false);
 
-  var clickClass = event.target.getAttribute("class");
-  if (clickClass != null) {
-    //console.log("class = " + clickClass);
-
-    if (clickClass.includes("remove")) {
-
-      var targetId = event.target.id;
-
-      if (targetId == null) {
-        console.log("targetId was null: " + event.target);
-        //targetId = event.target.
-      } else {
-        console.log("remove was found with id: " + targetId);
-
-
-        var removeSquare = document.getElementById(targetId);
-
-        console.log(removeSquare);
-
-        removeSquare.remove();
-      }
-    }
-
-    // Log the clicked element in the console
-    //console.log(event.target);
-  }
-
-  event.stopPropagation();
-
-}, false);
-*/
 
 // Reveals add form
 //add.addEventListener('click', function(event){
@@ -135,7 +134,7 @@ container.addEventListener('click', function(event) {
 
 // Close form on OK
 ok.addEventListener('click', function(event){
-  event.preventDefault();
+  // event.preventDefault();
 
   var foodName = document.getElementById("foodName").value;
 
