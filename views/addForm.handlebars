@@ -9,7 +9,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -19,14 +19,21 @@
 
     <div class="container">
 
+      <a href="openScreen.html">
+        <div class="back">
+          <img src="images/icons/back.svg" alt="back"></img>
+        </div>
+      </a>
+
       <div id="addForm">
 
         <h1>Add an item</h1>
-        <small>Add as much information as possible!</small>
+        <p>Add as much information as possible!</p>
 
-        <form role="form" method="get" action="/add">
+        <form role="form" method="get" action="/add" >
           {{!-- <input id="foodName" placeholder="Food Name" type="text" required name="name"/> --}}
-          <select id="foodName">
+          <h3>Food Type</h3>
+          <select id="foodName" class="formBox">
             <option value="apple">Apple</option>
             <option value="avocado">Avocado</option>
             <option value="banana">Banana</option>
@@ -53,14 +60,25 @@
             <option value="tomato">Tomato</option>
             <option value="watermelon">Watermelon</option>
           </select>
-          <input placeholder="Amount" type="text"/>
-          <input placeholder="Purchase Date" type="text"/>
-          <input placeholder="Owner" type="text"/>
-          <a href='/home'>
-          <button placeholder="OK" class="OkButton" type="OK" > OK </button>
-        </a>
-        <a href = '/home'>
-          <button placeholder="Cancel" class="CancelButton" type="Cancel">Cancel </button>
+          <br>
+          <h3>Amount</h3>
+          <input placeholder="Amount" type="text" class="formBox"/>
+          <br>
+          <h3>Purchase Date</h3>
+          <input placeholder="Purchase Date" type="text" class="formBox"/>
+          <br>
+          <h3>Owner</h3>
+          <input placeholder="Owner" type="text" class="formBox"/>
+          <br>
+          <a href="/home">
+            <div class="buttonHalf right">
+              <p class="buttonText short white">Cancel</p>
+            </div>
+          </a>
+        <a href="/home">
+          <div class="buttonHalf left">
+            <p class="buttonText short white">Ok</p>
+          </div>
         </a>
         </form>
       </div>

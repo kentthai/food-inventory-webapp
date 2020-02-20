@@ -83,7 +83,7 @@ h2 {
   /* background-color: powderblue; */
   /* display: flex; */
   /* flex-wrap: wrap; */
-
+  margin-left: 1em;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -125,4 +125,11 @@ h2 {
   margin-top: 10px;
   margin-bottom: 10px;
   display: block;
+}
+
+.back{
+  margin-top: 4em;
+  width: 20;
+  left: 18px;
+  top: 65.94px;
 }
