@@ -37,7 +37,7 @@
 }
 
 #addForm {
-  font-family: Helvetica;
+  font-family: 'Montserrat';
   /* display: none; */
 }
 
@@ -71,7 +71,7 @@
   float: left;
 }
 
-.box img {
+.itemImg {
   /* display: block; */
   /* margin: auto; */
   /* text-align: center; */
@@ -82,34 +82,22 @@
 }
 
 .options {
-  /* position: absolute; */
-  /* bottom: 0; */
-  right: 0;
-  /* border-style: solid; */
-  /* border-width: 1px; */
-  /* width: 100%; */
   height: 100%;
   width: 10%;
-  display: flex;
 }
 
-.options .option{
-  /* width: 50%; */
-  height: 50%;
-  border-style: solid;
-  border-width: 0px;
+.option{
+  height: 30%;
+  margin-top: 1em;
 }
 
-.options .option .button{
+ .button{
+   text-align: right;
+   float: right;
+   height: 25px;
+   margin-right: 2.5em;
+   margin-top: 0.5em;
   /* height: 15px; */
-
-  /* width: auto; */
-  width: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 8px;
-  display: block;
 }
 
 .boxText{
@@ -153,31 +141,6 @@ h2 {
   /* margin-bottom: 10px; */
 }
 
-/* .navbar a { */
-/* float: left; */
-/* display: block; */
-
-/* yes */
-/* color: #f2f2f2; */
-
-/* text-align: center; */
-
-/* yes */
-/* padding: 14px 16px; */
-
-/* text-decoration: none; */
-/* font-size: 17px; */
-/* } */
-
-/* Change the color of links on hover */
-.navbar .tab:hover {
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.navbar .tab.active {
-  color: white;
-}
 
 .icon{
   height: 50px;
@@ -189,23 +152,23 @@ h2 {
   display: block;
 }
 
-/*
-.personal {
-margin: 100px 100px 100px 100px;
+h3 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 42px;
+  color: #000000;
+  text-align: center;
 }
 
-
-
-.shared {
-margin: 100px 100px 100px 100px;
-
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  color: #000000;
 }
 
-.camera {
-margin: 100px 100px 100px 100px;
+.move{
+  margin-right: 1.5em;
 }
-
-.settings {
-margin: 100px 100px 100px 100px;
-}
-*/

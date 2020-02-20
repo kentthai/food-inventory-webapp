@@ -21,7 +21,7 @@
       {{#each foodItems}}
         <div class="box" id="{{id}}">
           <div class="picture">
-            <img src="{{imageURL}}" alt="{{imageName}}"></img>
+            <img src="{{imageURL}}" alt="{{imageName}}" class="itemImg"></img>
           </div>
           <div class="boxText">
             <h2>{{imageName}}</h2>
@@ -31,13 +31,13 @@
 
             <div class="option" id="share">
               <a href="#share">
-                <img src="images/icons/claim.svg" alt="share" class="button move" id="group{{id}}"></img>
+                <img src="images/icons/claim.svg" alt="share" class="button" id="group{{id}}"></img>
               </a>
             </div>
 
             <div class="option" id="remove">
               <a href="#remove" class="remove">
-                <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
+                <img src="images/icons/remove.svg" alt="remove" class="button" id="remove{{id}}"></img>
               </a>
             </div>
 
@@ -45,13 +45,6 @@
         </div>
       {{/each}}
 
-      <div class="add">
-        <div class="picture">
-          <a href="#add">
-            <img src="images/icons/add.png" alt="add"></img>
-          </a>
-        </div>
-      </div>
 
       <div id="addForm" class = "hidden">
 
