@@ -32,10 +32,6 @@
   position: relative;
 }
 
-.add img {
-  margin-top: 30%;
-}
-
 #addForm {
   font-family: 'Montserrat';
   /* display: none; */
@@ -67,7 +63,7 @@
 }
 
 .box .picture {
-  width: 30%;
+  width: 180px;
   float: left;
 }
 
@@ -83,7 +79,7 @@
 
 .options {
   height: 100%;
-  width: 10%;
+  width: 100px;
 }
 
 .option{
@@ -101,7 +97,7 @@
 }
 
 .boxText{
-  width: 60%;
+  width: 90%;
   margin-top: auto;
   margin-bottom: auto;
   float: right;
