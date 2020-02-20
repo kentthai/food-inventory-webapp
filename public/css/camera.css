@@ -1,0 +1,54 @@
+.hidden {
+  display: none;
+}
+
+.background {
+  background-color: #EEEEEE;
+}
+
+.container {
+  /* height: 2436px; */
+  /* width: 1125px; */
+  /* background-color: powderblue; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#screenshot {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar {
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar .tab {
+  width: 25%;
+}
+
+/* Change the color of links on hover */
+.navbar .tab:hover {
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navbar .tab.active {
+  color: white;
+}
+
+.icon{
+  height: 50px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: block;
+}
