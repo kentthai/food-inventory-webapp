@@ -14,48 +14,12 @@
 
     <script src="https://code.jquery.com/jquery.js"></script>
   </head>
+
   <body class="background">
 
     <div class="container">
 
-      {{#each foodItems}}
-        <div class="box" id="{{id}}">
-          <div class="picture">
-            <img src="{{imageURL}}" alt="{{imageName}}"></img>
-          </div>
-          <div class="boxText">
-            <h2>{{imageName}}</h2>
-          </div>
-
-
-          <div class="options">
-
-            <div class="option" id="share">
-              <a href="#share">
-                <img src="images/icons/share.svg" alt="share" class="button move" id="food{{id}}"></img>
-              </a>
-            </div>
-
-            <div class="option" id="remove">
-              <a href="#remove" class="remove">
-                <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      {{/each}}
-
-      <div class="add">
-        <div class="picture">
-          <a href="/addForm">
-            <img src="images/icons/add.png" alt="add"></img>
-          </a>
-        </div>
-      </div>
-
-
-      <!-- <div id="addForm" class = "hidden">
+      <div id="addForm">
 
         <h1>Add an item</h1>
         <small>Add as much information as possible!</small>
@@ -95,43 +59,10 @@
           <button placeholder="OK" class="OkButton" type="OK"> OK </button>
           <button placeholder="Cancel" class="CancelButton" type="Cancel">Cancel </button>
         </form>
-      </div> -->
+      </div>
 
 
     </div>
-
-
-
-    <div class="navbar">
-      <div class="tab active">
-        <a href="/home">
-          <img src="images/icons/personal.svg" alt="personal" class="icon"></img>
-        </a>
-        <!-- personal -->
-      </div>
-
-      <div class="tab">
-        <a href="/group">
-          <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
-        </a>
-      </div>
-
-      <div class="tab">
-        <a href="/camera">
-          <img src="images/icons/cameraGrey.svg" alt="camera" class="icon"></img>
-        </a>
-      </div>
-
-      <div class="tab">
-        <a href="/settings">
-          <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
-        </a>
-      </div>
-    </div>
-
 
     <script src="js/home.js"></script>
   </body>
-</html>
-
-<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->

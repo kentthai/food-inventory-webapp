@@ -116,19 +116,20 @@ container.addEventListener('click', function(event) {
 */
 
 // Reveals add form
-add.addEventListener('click', function(event){
-	event.preventDefault();
-	var addBox = document.querySelector("#addForm");
-	addBox.classList.remove("hidden");
+//add.addEventListener('click', function(event){
+	//event.preventDefault();
+	// var addBox = document.querySelector("#addForm");
+	// addBox.classList.remove("hidden");
+	// location.href =
 
-}, false);
+//}, false);
 
 // Close form on cancel
-cancel.addEventListener('click', function(event){
-	event.preventDefault();
-	var addBox = document.querySelector("#addForm");
-	addBox.classList.add("hidden");
-},false);
+// cancel.addEventListener('click', function(event){
+// 	event.preventDefault();
+// 	var addBox = document.querySelector("#addForm");
+// 	addBox.classList.add("hidden");
+// },false);
 
 // Close form on OK
 ok.addEventListener('click', function(event){

@@ -19,6 +19,7 @@ var index = require('./routes/index');
 var settings = require('./routes/settings');
 var group = require('./routes/group');
 var camera = require('./routes/camera');
+var addForm = require('./routes/addForm')
 
 // Login routes
 var open = require('./routes/open');
@@ -72,6 +73,7 @@ app.get('/home', index.view);
 app.get('/settings', settings.view);
 app.get('/group', group.view);
 app.get('/camera', camera.view);
+app.get('/addForm', addForm.view);
 
 app.get('/share/:id', share.foodInfo);
 app.get('/claim/:id', claim.foodInfo);
