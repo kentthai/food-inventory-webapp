@@ -1,6 +1,8 @@
 'use strict';
 
-const url = "https://cse170-a6.herokuapp.com";
+//const url = "https://cse170-a6.herokuapp.com";
+const url = "http://localhost:3000";
+
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -116,19 +118,20 @@ container.addEventListener('click', function(event) {
 */
 
 // Reveals add form
-add.addEventListener('click', function(event){
-	event.preventDefault();
-	var addBox = document.querySelector("#addForm");
-	addBox.classList.remove("hidden");
+//add.addEventListener('click', function(event){
+	//event.preventDefault();
+	// var addBox = document.querySelector("#addForm");
+	// addBox.classList.remove("hidden");
+	// location.href =
 
-}, false);
+//}, false);
 
 // Close form on cancel
-cancel.addEventListener('click', function(event){
-	event.preventDefault();
-	var addBox = document.querySelector("#addForm");
-	addBox.classList.add("hidden");
-},false);
+// cancel.addEventListener('click', function(event){
+// 	event.preventDefault();
+// 	var addBox = document.querySelector("#addForm");
+// 	addBox.classList.add("hidden");
+// },false);
 
 // Close form on OK
 ok.addEventListener('click', function(event){
