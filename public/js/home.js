@@ -1,7 +1,8 @@
 'use strict';
 
-// const url = "https://cse170-a6.herokuapp.com";
-const url = "http://localhost:3000";
+const url = "https://a7-fud.herokuapp.com";
+//const url = "http://localhost:3000";
+
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -132,6 +133,7 @@ const ok = document.querySelector(".OkButton");
 // 	addBox.classList.add("hidden");
 // },false);
 
+/*
 // Close form on OK
 ok.addEventListener('click', function(event){
   // event.preventDefault();
@@ -153,3 +155,4 @@ function addCallback(response) {
   //$("#project" + id + " .details").html(projectHTML);
   location.reload();
 }
+*/
