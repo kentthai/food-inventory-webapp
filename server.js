@@ -85,6 +85,8 @@ app.get('/addPersonal/:name', add.addPersonal);
 app.get('/addGroup/:name', add.addGroup);
 // Example route
 app.get('/viewAlt', index.viewAlt);
+app.get('/viewAltGroup', group.viewAlt);
+
 
 
 
