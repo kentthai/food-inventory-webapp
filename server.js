@@ -84,7 +84,10 @@ app.get('/removeGroup/:id', remove.group);
 app.get('/addPersonal/:name', add.addPersonal);
 app.get('/addGroup/:name', add.addGroup);
 // Example route
-// app.get('/add', add.addFriend);
+app.get('/viewAlt', index.viewAlt);
+app.get('/viewAltGroup', group.viewAlt);
+
+
 
 
 http.createServer(app).listen(app.get('port'), function(){

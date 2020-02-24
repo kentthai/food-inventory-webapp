@@ -9,3 +9,11 @@ exports.view = function(request, response){
 
 	response.render('group', data);
 };
+
+exports.viewAlt = function(request, response){
+	console.log(data);
+	// data.viewAlt = True;
+
+
+	response.render('index', data);
+};
