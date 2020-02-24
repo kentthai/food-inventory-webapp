@@ -19,6 +19,8 @@ exports.foodInfo = function(request, response) {
 
   group.foodItems.push(food);
 
+  //foods["foodItems"].splice( foods["foodItems"].indexOf('foo'), 1 );
+
   delete foods["foodItems"][foodID-1];
 
   delete require.cache[require.resolve('../data.json')]
@@ -27,5 +29,8 @@ exports.foodInfo = function(request, response) {
   console.log(foods["foodItems"]);
 
   response.json(foods);
+
+  //response.render('index', foods);
+
 	//response.render('index', foods["foodItems"]);
 }

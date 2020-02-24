@@ -1,7 +1,7 @@
 'use strict';
 
-const url = "https://a7-fud.herokuapp.com";
-//const url = "http://localhost:3000";
+//const url = "https://a7-fud.herokuapp.com";
+const url = "http://localhost:3000";
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {

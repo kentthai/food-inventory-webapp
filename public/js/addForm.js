@@ -1,6 +1,8 @@
 'use strict';
 
-const url = "https://a7-fud.herokuapp.com";
+//const url = "https://a7-fud.herokuapp.com";
+const url = "http://localhost:3000";
+
 
 const container = document.querySelector(".container");
 const add = document.querySelector(".add");
