@@ -70,16 +70,37 @@
           <h3>Owner</h3>
           <input placeholder="Owner" type="text" class="formBox"/>
           <br>
-          <a href="/home">
-            <div class="buttonHalf left">
-              <p class="buttonText short white OkButton">Ok</p>
-            </div>
-          </a>
-          <a href="/home">
-            <div class="buttonHalf right">
-              <p class="buttonText short white CancelButton">Cancel</p>
-            </div>
-          </a>
+
+          {{#if viewAlt}}
+
+            <a href="/home_b">
+              <div class="buttonHalf left">
+                <p class="buttonText short white OkButton" id="altAdd">Ok</p>
+              </div>
+            </a>
+            <a href="/home_b">
+              <div class="buttonHalf right">
+                <p class="buttonText short white CancelButton">Cancel</p>
+              </div>
+            </a>
+
+          {{else}}
+
+            <a href="/home">
+              <div class="buttonHalf left">
+                <p class="buttonText short white OkButton">Ok</p>
+              </div>
+            </a>
+            <a href="/home">
+              <div class="buttonHalf right">
+                <p class="buttonText short white CancelButton">Cancel</p>
+              </div>
+            </a>
+
+          {{/if}}
+
+
+
         </form>
       </div>
 

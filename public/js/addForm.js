@@ -31,9 +31,15 @@ function addFood (event){
   console.log("ok");
   var foodName = document.getElementById("foodName").value;
 
+  var regularRoute = (document.getElementById("altAdd") == null);
+
   console.log("foodName = " + foodName);
 
-  $.get(url+"/addPersonal/"+foodName, addCallback);
+  if (regularRoute) {
+    $.get(url+"/addPersonal/"+foodName, addCallback);
+  } else {
+    $.get(url+"/addPersonal/"+foodName, altAddCallback);
+  }
 
 }
 
@@ -45,6 +51,16 @@ function addCallback(response) {
   window.location.href = "/home";
   //$("#project" + id + " .details").html(projectHTML);
   // location.reload();
+}
+
+function altAddCallback(response) {
+  var id = response["id"];
+  var imageName = response["imageName"];
+  var imageURL = response["imageURL"];
+  console.log(id + " " + imageName + " " + imageURL);
+  window.location.href = "/home_b";
+  //$("#project" + id + " .details").html(projectHTML);
+  location.reload();
 }
 
 function cancel_func(response) {

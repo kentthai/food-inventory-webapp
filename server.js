@@ -74,6 +74,7 @@ app.get('/settings', settings.view);
 app.get('/group', group.view);
 app.get('/camera', camera.view);
 app.get('/addForm', addForm.view);
+app.get('/addForm_b', addForm.viewAlt);
 
 app.get('/share/:id', share.foodInfo);
 app.get('/claim/:id', claim.foodInfo);
@@ -83,9 +84,10 @@ app.get('/removeGroup/:id', remove.group);
 
 app.get('/addPersonal/:name', add.addPersonal);
 app.get('/addGroup/:name', add.addGroup);
+
 // Example route
-app.get('/viewAlt', index.viewAlt);
-app.get('/viewAltGroup', group.viewAlt);
+app.get('/home_b', index.viewAlt);
+app.get('/group_b', group.viewAlt);
 
 
 

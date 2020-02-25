@@ -18,39 +18,85 @@
 
     <div class="container">
 
-      {{#each foodItems}}
-        <div class="box" id="{{id}}">
-          <div class="picture">
-            <img src="{{imageURL}}" alt="{{imageName}}" class="itemImg"></img>
-          </div>
-          <div class="boxText">
-            <h2>{{imageName}}</h2>
-          </div>
+      {{#if viewAlt}}
 
 
-          <div class="options">
 
-            <div class="option" id="share">
-              <a href="#share">
-                <img src="images/icons/share.svg" alt="share" class="button move" id="food{{id}}"></img>
-              </a>
+
+        {{#each foodItems}}
+          <div class="square" id="{{id}}">
+            <div class="picture">
+              <img src="{{imageURL}}" alt="{{imageName}}"></img>
             </div>
 
-            <div class="option" id="remove">
-              <a href="#remove" class="remove">
-                <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
-              </a>
-            </div>
+            <div class="options">
 
+              <div class="option" id="share">
+                <a href="#share">
+                  <img src="images/icons/share.svg" alt="share" class="button move" id="food{{id}}"></img>
+                </a>
+              </div>
+
+              <div class="option" id="remove">
+                <a href="#remove" class="remove">
+                  <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
+                </a>
+              </div>
+
+            </div>
           </div>
+        {{/each}}
+
+        <div class="addOld">
+          <a href="/addForm_b" class="center">
+            <h3>+</h3>
+          </a>
         </div>
-      {{/each}}
 
-      <div class="add">
+      {{else}}
+
+        {{#each foodItems}}
+
+          <div class="box" id="{{id}}">
+            <div class="picture">
+              <img src="{{imageURL}}" alt="{{imageName}}" class="itemImg"></img>
+            </div>
+            <div class="boxText">
+              <h2>{{imageName}}</h2>
+            </div>
+
+
+            <div class="options">
+
+              <div class="option" id="share">
+                <a href="#share">
+                  <img src="images/icons/share.svg" alt="share" class="button move" id="food{{id}}"></img>
+                </a>
+              </div>
+
+              <div class="option" id="remove">
+                <a href="#remove" class="remove">
+                  <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        {{/each}}
+
+        <div class="add">
           <a href="/addForm" class="center">
             <h3>+</h3>
           </a>
-      </div>
+        </div>
+
+
+      {{/if}}
+
+
+
+
 
 
       <!-- <div id="addForm" class = "hidden">
