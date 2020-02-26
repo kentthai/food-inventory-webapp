@@ -98,11 +98,24 @@
 }
 
 .box .button{
-   text-align: right;
-   float: right;
-   height: 25px;
-   margin-right: 2.5em;
-   margin-top: 0.5em;
+  text-align: right;
+  float: right;
+  height: 25px;
+
+  margin-right: 2.5em;
+
+  margin-top: 0.5em;
+  /* height: 15px; */
+}
+
+.box .shareButton{
+  text-align: right;
+  float: right;
+  height: 25px;
+
+  margin-right: 1.5em;
+
+  margin-top: 0.5em;
   /* height: 15px; */
 }
 
@@ -175,15 +188,15 @@ h3 {
   color: #000000;
 }
 
-.move{
+/* .move{
   margin-right: 1.5em;
-}
+} */
 
 
 
 
-.move2{
-  margin-right: 2.5em;
+.moveStyle{
+  margin-right: 1.5em;
 }
 
 

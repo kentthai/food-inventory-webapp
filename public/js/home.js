@@ -3,7 +3,6 @@
 const url = "https://a8-fud.herokuapp.com";
 //const url = "http://localhost:3000";
 
-
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
@@ -82,81 +81,3 @@ const container = document.querySelector(".container");
 const add = document.querySelector(".add");
 const cancel = document.querySelector(".CancelButton");
 const ok = document.querySelector(".OkButton");
-
-
-// container.addEventListener('click', function(event) {
-//
-// 	// Don't follow the link
-// 	event.preventDefault();
-//
-//   var clickClass = event.target.getAttribute("class");
-//   if (clickClass != null) {
-//     //console.log("class = " + clickClass);
-//
-//     if (clickClass.includes("remove")) {
-//
-//       var targetId = event.target.id;
-//
-//       if (targetId == null) {
-//         console.log("targetId was null: " + event.target);
-//         //targetId = event.target.
-//       } else {
-//         console.log("remove was found with id: " + targetId);
-//
-//
-//         var removeSquare = document.getElementById(targetId);
-//
-//         console.log(removeSquare);
-//
-//         removeSquare.remove();
-//       }
-//     }
-//
-//     // Log the clicked element in the console
-//     //console.log(event.target);
-//   }
-//
-//   event.stopPropagation();
-//
-// }, false);
-
-
-// Reveals add form
-//add.addEventListener('click', function(event){
-	//event.preventDefault();
-	// var addBox = document.querySelector("#addForm");
-	// addBox.classList.remove("hidden");
-	// location.href =
-
-//}, false);
-
-// Close form on cancel
-// cancel.addEventListener('click', function(event){
-// 	event.preventDefault();
-// 	var addBox = document.querySelector("#addForm");
-// 	addBox.classList.add("hidden");
-// },false);
-
-/*
-// Close form on OK
-ok.addEventListener('click', function(event){
-  // event.preventDefault();
-
-  var foodName = document.getElementById("foodName").value;
-
-  console.log("foodName = " + foodName);
-
-  $.get(url+"/addPersonal/"+foodName, addCallback);
-
-},false);
-
-function addCallback(response) {
-  var id = response["id"];
-	var imageName = response["imageName"];
-	var imageURL = response["imageURL"];
-	console.log(id + " " + imageName + " " + imageURL);
-
-  //$("#project" + id + " .details").html(projectHTML);
-  location.reload();
-}
-*/
