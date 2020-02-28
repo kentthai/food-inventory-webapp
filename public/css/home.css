@@ -73,8 +73,13 @@
 }
 
 .box .picture {
-  width: 180px;
+  width: 50%;
   float: left;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .box .itemImg {
@@ -83,8 +88,12 @@
   /* text-align: center; */
   /* margin-top: 10%; */
   height: 70%;
-  margin-top: 1em;
-  margin-left: 15%;
+  margin-top: auto;
+
+  margin-bottom: auto;
+
+  height: auto;
+  max-width: 90%;
 }
 
 .box .options {
@@ -131,7 +140,7 @@ h2 {
   font-style: normal;
   text-transform: capitalize;
   font-weight: bold;
-  font-size: 42px;
+  font-size: 30px;
   color: #000000;
 
 }
