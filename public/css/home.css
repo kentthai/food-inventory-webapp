@@ -73,13 +73,16 @@
 }
 
 .box .picture {
-  width: 50%;
+  max-height: 100px;
+  max-width: 25%;
+  height: auto;
+  width: auto;
   float: left;
 
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .box .itemImg {
@@ -87,13 +90,14 @@
   /* margin: auto; */
   /* text-align: center; */
   /* margin-top: 10%; */
-  height: 70%;
+  /* height: 70%; */
   margin-top: auto;
 
   margin-bottom: auto;
 
-  height: auto;
-  max-width: 90%;
+  height: 100%;
+  width: auto;
+  /* max-width: 30%; */
 }
 
 .box .options {
