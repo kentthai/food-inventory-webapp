@@ -24,6 +24,7 @@ var camera = require('./routes/camera');
 var addForm = require('./routes/addForm')
 
 // Login routes
+var login = require('./routes/login');
 var open = require('./routes/open');
 
 var share = require('./routes/share');
@@ -70,6 +71,8 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', open.view);
+
+app.post('/login', login.view);
 
 app.get('/home', index.view);
 app.get('/settings', settings.view);
