@@ -12,7 +12,9 @@ var PORT = 3000;
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express-handlebars')
+var handlebars = require('express-handlebars');
+
+var mysql = require('mysql');
 
 // Route
 var index = require('./routes/index');
@@ -89,6 +91,30 @@ app.get('/addGroup/:name', add.addGroup);
 app.get('/home_b', index.viewAlt);
 app.get('/group_b', group.viewAlt);
 
+// database development
+app.get('/users', (req, res) => {
+  console.log("Getting users")
+
+  const connection = mysql.createConnection({
+    host: 'us-cdbr-iron-east-04.cleardb.net',
+    user: 'be8a60e252cf4b',
+    password: 'fac5d6aa',
+    database: 'heroku_b3b87a6bb243c0c'
+  })
+
+  const queryString = "SELECT * FROM Users"
+  connection.query(queryString, (err, rows, fields) => {
+    if (err) {
+      console.log("Failed to query for users: " + err)
+      res.send("Failed to query for users")
+      return
+    }
+
+    console.log("User query callback")
+    res.json(rows)
+  })
+
+})
 
 
 
