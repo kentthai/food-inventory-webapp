@@ -7,7 +7,6 @@ exports.view = function(request, response){
 	console.log(data);
 	data["viewAlt"] = false;
 
-	/*
 	const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'be8a60e252cf4b',
@@ -15,7 +14,7 @@ exports.view = function(request, response){
     database: 'heroku_b3b87a6bb243c0c'
   })
 
-  const queryString = "SELECT * FROM Foods WHERE user_id="
+  const queryString = "SELECT * FROM Foods"
   connection.query(queryString, (err, rows, fields) => {
     if (err) {
       console.log("Failed to query for foods: " + err)
@@ -23,10 +22,12 @@ exports.view = function(request, response){
       return
     }
 
-    console.log("Food query callback")
-    res.json(rows)
+		console.log("Food query callback")
+		console.log(rows)
+		//response.json(rows)
+
+		connection.end();
 	})
-	*/
 
 	response.render('index', data);
 };

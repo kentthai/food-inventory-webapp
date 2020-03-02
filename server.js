@@ -112,6 +112,7 @@ app.get('/users', (req, res) => {
 
     console.log("User query callback")
     res.json(rows)
+    connection.end();
   })
 
 })
