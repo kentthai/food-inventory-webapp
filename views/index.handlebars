@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery.js"></script>
+    {{!-- <script src="https://code.jquery.com/jquery.js"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
     <!-- Google Analytics -->
 <script>
@@ -65,15 +67,11 @@ if (window.performance) {
             <div class="options">
 
               <div class="option" id="share">
-                <a href="#share">
-                  <img src="images/icons/share.svg" alt="share" class="button move" id="food{{id}}"></img>
-                </a>
+                <img src="images/icons/share.svg" alt="share" class="button move" id="food{{id}}"></img>
               </div>
 
               <div class="option" id="remove">
-                <a href="#remove" class="remove">
-                  <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
-                </a>
+                <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
               </div>
 
             </div>
