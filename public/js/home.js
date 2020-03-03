@@ -27,23 +27,23 @@ function initializePage() {
 
 	  // Sends the timing hit to Google Analytics.
 		$('.move_a').click(function() {
-			ga('send', 'event', 'move', 'click');
-			ga('send', 'timing', 'move', 'click', timeSincePageLoad);
+			ga('send', 'event', 'move_a', 'click');
+			ga('send', 'timing', 'move_a', 'click', timeSincePageLoad);
 		});
 
 		$('.move_b').click(function() {
-			ga('send', 'event', 'move', 'click');
-			ga('send', 'timing', 'move', 'click', timeSincePageLoad);
+			ga('send', 'event', 'move_a', 'click');
+			ga('send', 'timing', 'move_a', 'click', timeSincePageLoad);
 		});
 
 		$('.remove_a').click(function() {
-			ga('send', 'event', 'remove', 'click');
-			ga('send', 'timing', 'remove', 'click', timeSincePageLoad);
+			ga('send', 'event', 'remove_a', 'click');
+			ga('send', 'timing', 'remove_a', 'click', timeSincePageLoad);
 		});
 
 		$('.remove_b').click(function() {
-			ga('send', 'event', 'remove', 'click');
-			ga('send', 'timing', 'remove', 'click', timeSincePageLoad);
+			ga('send', 'event', 'remove_b', 'click');
+			ga('send', 'timing', 'remove_b', 'click', timeSincePageLoad);
 		});
 	}
 }
