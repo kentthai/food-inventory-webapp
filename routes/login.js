@@ -1,6 +1,5 @@
 var mysql = require('mysql');
 
-
 exports.view = function(request, response){
 
   console.log("request.body: ")
@@ -10,6 +9,9 @@ exports.view = function(request, response){
   const session_id = request.sessionID;
   console.log("FOUND SESSION ID: " + session_id);
 
+  console.log("Setting session's userid and homeid")
+  //request.session.user_id = 2
+  request.session.home_id = 2
 
 	const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -65,12 +67,22 @@ exports.view = function(request, response){
       })
     }
 
-		//response.json(rows)
+    //response.json(rows)
 
-		connection.end();
+    // Query the name again to set the user_id in the session
+    connection.query(queryString, function (err, rows, fields) {
+      if (err || rows.length <= 0) {
+        console.log("Failed to query for users: " + err)
+        res.send("Failed to query for users")
+        return
+      }
+
+      console.log("Setting session user id to " + rows[0].user_id)
+      request.session.user_id = rows[0].user_id;
+
+      connection.end();
+
+      response.render('open', {});
+    })
   })
-
-
-
-	response.render('open', {});
 };
