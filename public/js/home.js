@@ -16,14 +16,24 @@ function initializePage() {
 
   $('.remove').click(removeItem);
 
-	$('.move').click(function() {
-		ga('send', 'event', 'move', 'click');
-	});
 
-	$('.remove').click(function() {
-		ga('send', 'event', 'remove', 'click');
-	});
+	// Feature detects Navigation Timing API support.
+	if (window.performance) {
+	  // Gets the number of milliseconds since page load
+	  // (and rounds the result since the value must be an integer).
+	  var timeSincePageLoad = Math.round(performance.now());
 
+	  // Sends the timing hit to Google Analytics.
+		$('.move').click(function() {
+			ga('send', 'event', 'move', 'click');
+			ga('send', 'timing', 'move', 'click', timeSincePageLoad);
+		});
+
+		$('.remove').click(function() {
+			ga('send', 'event', 'remove', 'click');
+			ga('send', 'timing', 'remove', 'click', timeSincePageLoad);
+		});
+	}
 }
 
 function moveItem(e){
