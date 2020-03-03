@@ -7,6 +7,9 @@ var mysql = require('mysql');
 exports.addPersonal = function(request, response) {
 
 	const session_id = request.sessionID
+	const user_id = request.session.user_id
+	const home_id = request.session.home_id
+
 	const food_name = request.body.food_name;
 	const amount = request.body.amount;
 	const expiration = request.body.expiration;
@@ -18,7 +21,7 @@ exports.addPersonal = function(request, response) {
 		database: 'heroku_b3b87a6bb243c0c'
 	})
 
-	const insertQuery = "INSERT INTO Foods (food_name, user_id, home_id, amount, expiration) VALUES (\"" + food_name + "\", \"" + 2 + " \", \"" + 2 + "\", \"" + amount+ "\", \"" + expiration+ "\")"
+	const insertQuery = "INSERT INTO Foods (food_name, user_id, home_id, amount, expiration) VALUES (\"" + food_name + "\", \"" + user_id + " \", \"" + home_id + "\", \"" + amount+ "\", \"" + expiration+ "\")"
 	connection.query(insertQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to insert into foods: " + err)

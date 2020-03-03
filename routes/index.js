@@ -15,6 +15,10 @@ exports.view = function(request, response){
 	console.log(request.sessionID)
 	const session_id = request.sessionID
 
+	console.log("Testing session info: ")
+	console.log("userid = " + request.session.user_id)
+	console.log("homeid = " + request.session.home_id)
+
 	const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'be8a60e252cf4b',
