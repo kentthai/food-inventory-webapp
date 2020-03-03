@@ -33,11 +33,20 @@ ga('send', 'pageview');
 
     <div class="houses">
       <h1>Your Houses</h1>
-      {{#each houses}}
-      <div class="house" id = {{id}}>
-        {{name}}
-      </div>
-      {{/each}}
+
+      {{#if housesExist}}
+
+        {{#each houses}}
+        <div class="house" id = {{id}}>
+          {{name}}
+        </div>
+        {{/each}}
+
+      {{else}}
+
+        You are not in any houses currently
+
+      {{/if}}
     </div>
 
     <hr/>
