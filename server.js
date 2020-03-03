@@ -94,6 +94,7 @@ app.get('/addGroup/:name', add.addGroup);
 app.get('/home_b', index.viewAlt);
 app.get('/group_b', group.viewAlt);
 
+/*
 // database development
 app.get('/users', (req, res) => {
   console.log("Getting users")
@@ -119,7 +120,9 @@ app.get('/users', (req, res) => {
   })
 
 })
+*/
 
+console.log("testing database on heroku")
 
 
 http.createServer(app).listen(app.get('port'), function(){
