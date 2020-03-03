@@ -34,7 +34,7 @@ exports.view = function(request, response){
       console.log("user_id = " + rows[0].user_id)
 
       const updateQuery = "UPDATE Users SET session_id=\"" + session_id + "\" WHERE user_name=\"" + name + "\""
-      connection.query(updateQuery, (err, rows, fields) => {
+      connection.query(updateQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to update users: " + err)
           res.send("Failed to update users")
