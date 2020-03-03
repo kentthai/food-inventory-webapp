@@ -73,7 +73,7 @@
 }
 
 .box .picture {
-  max-height: 100px;
+  max-height: 80px;
   max-width: 25%;
   height: auto;
   width: auto;
@@ -81,8 +81,8 @@
 
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .box .itemImg {
@@ -102,7 +102,8 @@
 
 .box .options {
   height: 100%;
-  width: 100px;
+  width: 85px;
+  margin-right: 5px;
 }
 
 .box .option {
@@ -111,17 +112,14 @@
 }
 
 .box .button{
-  text-align: right;
-  float: right;
-  height: 25px;
-
-  margin-right: 2.5em;
-
-  margin-top: 0.5em;
+  height: 38px;
+  margin-left: auto;
+margin-right: auto;
+  /* margin-top: 0.5em; */
   /* height: 15px; */
 }
 
-.box .shareButton{
+/* .box .shareButton{
   text-align: right;
   float: right;
   height: 25px;
@@ -129,8 +127,8 @@
   margin-right: 1.5em;
 
   margin-top: 0.5em;
-  /* height: 15px; */
-}
+  height: 15px;
+} */
 
 .box .boxText{
   width: 90%;
@@ -206,12 +204,9 @@ h3 {
 } */
 
 
-
-
 .moveStyle{
   margin-right: 1.5em;
 }
-
 
 
 
@@ -307,4 +302,3 @@ h3 {
   margin-top: 35px;
   margin-bottom: 35px;
 }
-

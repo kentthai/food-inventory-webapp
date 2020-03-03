@@ -3,6 +3,10 @@
   height: 80vh;
 }
 
+.background2 {
+  background-color: #EEEEEE;
+}
+
 .button {
   margin: auto;
   width: 270px;
