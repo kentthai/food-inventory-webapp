@@ -72,22 +72,9 @@ function removeItem(e){
   console.log("id = " + idNumber)
 
   //$.get(url+"/removePersonal/"+idNumber, removeCallback);
-  $.post("/remove", {"food_id": idNumber}).done(function(response) {
+  $.post("/removePersonal", {"food_id": idNumber}).done(function(response) {
     location.reload();
   }).fail(function() {
     console.log("Error while deleting food item")
   });
 }
-
-/*
-function removeCallback(response) {
-  var id = response["id"];
-	var imageName = response["imageName"];
-	var imageURL = response["imageURL"];
-	console.log(id + " " + imageName + " " + imageURL);
-
-  //$("#project" + id + " .details").html(projectHTML);
-  $(".square #"+id).remove();
-  location.reload();
-}
-*/

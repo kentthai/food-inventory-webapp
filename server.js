@@ -85,7 +85,8 @@ app.post('/share', share.view);
 
 app.post('/add', add.addPersonal)
 
-app.post('/remove', remove.remove)
+app.post('/removePersonal', remove.personal)
+app.post('/removeGroup', remove.group)
 
 // Example route
 app.get('/home_b', index.viewAlt);

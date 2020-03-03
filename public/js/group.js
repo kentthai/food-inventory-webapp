@@ -1,6 +1,6 @@
 'use strict';
 
-const url = "https://a8-fud.herokuapp.com";
+//const url = "https://a8-fud.herokuapp.com";
 //const url = "http://localhost:3000";
 
 // Call this function when the page loads (the "ready" event)
@@ -61,28 +61,18 @@ function removeItem(e){
 
   // Get the div ID, e.g., "project3"
 	var itemID = $(this).closest('.remove').attr('id');
-	// get rid of 'food' from the front of the id 'food3'
-	var idNumber = itemID.substr('remove'.length);
+  // get rid of 'food' from the front of the id 'food3'
 
-  console.log("id = " + idNumber)
+  if (itemID) {
+    var idNumber = itemID.substr('remove'.length);
 
-  $.get(url+"/removeGroup/"+idNumber, removeCallback);
+    console.log("id = " + idNumber)
+
+    $.post("/removeGroup", {"food_id": idNumber}).done(function(response) {
+      console.log("Remove success")
+      location.reload();
+    }).fail(function() {
+      console.log("Error while deleting food item")
+    });
+  }
 }
-
-function removeCallback(response) {
-  var id = response["id"];
-	var imageName = response["imageName"];
-	var imageURL = response["imageURL"];
-	console.log(id + " " + imageName + " " + imageURL);
-
-  //$("#project" + id + " .details").html(projectHTML);
-  $(".square #"+id).remove();
-  location.reload();
-}
-
-
-// Add event listener to remove button
-const container = document.querySelector(".container");
-const add = document.querySelector(".add");
-const cancel = document.querySelector(".CancelButton");
-const ok = document.querySelector(".OkButton");
