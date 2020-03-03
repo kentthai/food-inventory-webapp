@@ -38,7 +38,10 @@ ga('send', 'pageview');
 
         {{#each houses}}
         <div class="house" id = {{id}}>
-          {{name}}
+          <form method="get" action="/home">
+            <input type="hidden" name="home_id" value="{{id}}"/>
+            <button type="submit">{{name}}</button>
+          </form>
         </div>
         {{/each}}
 
