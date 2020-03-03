@@ -3,91 +3,99 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/login.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/login.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery.js"></script>
-  </head>
+  <script src="https://code.jquery.com/jquery.js"></script>
+</head>
 
-  <body>
+<body>
 
-    <div class="container">
+  <div class="container">
 
-      <a href="/home">
-        <div class="back">
-          <img src="images/icons/back.svg" alt="back"></img>
-        </div>
-      </a>
+    <a href="/home">
+      <div class="back">
+        <img src="images/icons/back.svg" alt="back"></img>
+      </div>
+    </a>
 
-      <div id="addForm">
+    <div id="addForm">
 
-        <h1>Add an item</h1>
-        <p>Add as much information as possible!</p>
+      <h1>Add an item</h1>
+      <p>Add as much information as possible!</p>
 
-        <form role="form" method="post" action="/add" >
-          {{!-- <input id="foodName" placeholder="Food Name" type="text" required name="name"/> --}}
-          <h3>Food Type</h3>
-          <select id="foodName" class="formBox" name="food_name">
-            <option value="apple">Apple</option>
-            <option value="avocado">Avocado</option>
-            <option value="banana">Banana</option>
-            <option value="broccoli">Broccoli</option>
-            <option value="carrot">Carrot</option>
-            <option value="cherry">Cherry</option>
-            <option value="chili_pepper">Chill Pepper</option>
-            <option value="coconut">Coconut</option>
-            <option value="cookie">Cookie</option>
-            <option value="corn">Corn</option>
-            <option value="egg">Egg</option>
-            <option value="eggplant">Eggplant</option>
-            <option value="garlic">Garlic</option>
-            <option value="grape">Grape</option>
-            <option value="green_pepper">Green Pepper</option>
-            <option value="kiwi">Kiwi</option>
-            <option value="lemon">Lemon</option>
-            <option value="orange">Orange</option>
-            <option value="pear">Pear</option>
-            <option value="peas">Peas</option>
-            <option value="potato">Potato</option>
-            <option value="radish">Radish</option>
-            <option value="strawberry">Strawberry</option>
-            <option value="tomato">Tomato</option>
-            <option value="watermelon">Watermelon</option>
-          </select>
-          <br>
+      <form role="form" method="post" action="/add" >
+        {{!-- <input id="foodName" placeholder="Food Name" type="text" required name="name"/> --}}
+        <h3>Food Type</h3>
+        <select id="foodName" class="formBox" name="food_name">
+          <option value="apple">Apple</option>
+          <option value="avocado">Avocado</option>
+          <option value="banana">Banana</option>
+          <option value="broccoli">Broccoli</option>
+          <option value="carrot">Carrot</option>
+          <option value="cherry">Cherry</option>
+          <option value="chili_pepper">Chill Pepper</option>
+          <option value="coconut">Coconut</option>
+          <option value="cookie">Cookie</option>
+          <option value="corn">Corn</option>
+          <option value="egg">Egg</option>
+          <option value="eggplant">Eggplant</option>
+          <option value="garlic">Garlic</option>
+          <option value="grape">Grape</option>
+          <option value="green_pepper">Green Pepper</option>
+          <option value="kiwi">Kiwi</option>
+          <option value="lemon">Lemon</option>
+          <option value="orange">Orange</option>
+          <option value="pear">Pear</option>
+          <option value="peas">Peas</option>
+          <option value="potato">Potato</option>
+          <option value="radish">Radish</option>
+          <option value="strawberry">Strawberry</option>
+          <option value="tomato">Tomato</option>
+          <option value="watermelon">Watermelon</option>
+        </select>
+        <br>
 
-          <h3>Amount</h3>
-          <input placeholder="Amount" type="text" class="formBox" name="amount" required/>
-          <br>
+        <h3>Amount</h3>
+        <input placeholder="Amount" type="text" class="formBox" name="amount" required/>
+        <br>
 
-          <h3>Expiration Date</h3>
-          <input placeholder="Expiration Date" type="date" class="formBox" name="expiration" required/>
-          <br>
+        <h3>Expiration Date</h3>
+        <input placeholder="Expiration Date" type="date" class="formBox" name="expiration" required/>
+        <br>
 
-          {{#if viewAlt}}
+        {{#if viewAlt}}
 
-            <a href="/home_b">
-              <div class="buttonHalf left">
-                <p class="buttonText short white OkButton" id="altAdd">Ok</p>
-              </div>
+        <button type='submit' class="buttonShort">
+          <div>
+            <p class="buttonTextLong OkButton">Ok</p>
+          </div>
+        </button>
+
+            <!-- <a href="/home_b">
+              <button type='submit' class="buttonShort">
+                <div>
+                  <p class="buttonTextLong OkButton">Ok</p>
+                </div>
+              </button>
             </a>
             <a href="/home_b">
               <div class="buttonHalf right">
                 <p class="buttonText short white CancelButton">Cancel</p>
               </div>
-            </a>
+            </a> -->
 
           {{else}}
 
-            <button type='submit' class="button">
-              <div class="buttonHalf left">
-                <p class="buttonText short white OkButton">Ok</p>
+            <button type='submit' class="buttonShort">
+              <div>
+                <p class="buttonTextLong OkButton">Ok</p>
               </div>
             </button>
 
@@ -97,21 +105,47 @@
                 <p class="buttonText short white OkButton">Ok</p>
               </div>
             </a> --}}
-            <a href="/home">
-              <div class="buttonHalf right">
-                <p class="buttonText short white CancelButton">Cancel</p>
+            <!-- <a href="/home">
+              <div class="buttonShort">
+                <p class="buttonTextLong CancelButton">Cancel</p>
               </div>
-            </a>
+            </a> -->
 
           {{/if}}
 
 
 
-        </form>
-      </div>
+</form>
+</div>
 
 
-    </div>
+</div>
+<div class="navbar">
+  <div class="tab">
+    <a href="/home">
+      <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
+    </a>
+    <!-- personal -->
+  </div>
 
-    {{!-- <script src="js/addForm.js"></script> --}}
-  </body>
+  <div class="tab">
+    <a href="/group">
+      <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+    </a>
+  </div>
+
+  <div class="tab">
+    <a href="/addForm">
+      <img src="images/icons/addItem.svg" alt="camera" class="icon"></img>
+    </a>
+  </div>
+
+  <div class="tab active">
+    <a href="/settings">
+      <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
+    </a>
+  </div>
+</div>
+
+{{!-- <script src="js/addForm.js"></script> --}}
+</body>

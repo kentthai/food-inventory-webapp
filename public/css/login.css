@@ -84,6 +84,18 @@
   color: #FFFFFF;
 }
 
+.buttonTextLong{
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: auto;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+}
+
 .green{
   color: #74DB97;
 }
@@ -149,7 +161,6 @@ h1 {
   color: #000000;
   text-transform: uppercase;
   margin-bottom: 0em;
-  margin-top: 1em;
 }
 
 h2{
