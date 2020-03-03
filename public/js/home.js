@@ -26,12 +26,22 @@ function initializePage() {
 	  var timeSincePageLoad = Math.round(performance.now());
 
 	  // Sends the timing hit to Google Analytics.
-		$('.move').click(function() {
+		$('.move_a').click(function() {
 			ga('send', 'event', 'move', 'click');
 			ga('send', 'timing', 'move', 'click', timeSincePageLoad);
 		});
 
-		$('.remove').click(function() {
+		$('.move_b').click(function() {
+			ga('send', 'event', 'move', 'click');
+			ga('send', 'timing', 'move', 'click', timeSincePageLoad);
+		});
+
+		$('.remove_a').click(function() {
+			ga('send', 'event', 'remove', 'click');
+			ga('send', 'timing', 'remove', 'click', timeSincePageLoad);
+		});
+
+		$('.remove_b').click(function() {
 			ga('send', 'event', 'remove', 'click');
 			ga('send', 'timing', 'remove', 'click', timeSincePageLoad);
 		});
