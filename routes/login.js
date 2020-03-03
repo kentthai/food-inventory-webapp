@@ -19,7 +19,7 @@ exports.view = function(request, response){
   })
 
   const queryString = "SELECT * FROM Users WHERE user_name=\"" + name + "\""
-  connection.query(queryString, (err, rows, fields) => {
+  connection.query(queryString, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for users: " + err)
       res.send("Failed to query for users")
@@ -34,7 +34,7 @@ exports.view = function(request, response){
       console.log("user_id = " + rows[0].user_id)
 
       const updateQuery = "UPDATE Users SET session_id=\"" + session_id + "\" WHERE user_name=\"" + name + "\""
-      connection.query(updateQuery, (err, rows, fields) => {
+      connection.query(updateQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to update users: " + err)
           res.send("Failed to update users")
@@ -52,7 +52,7 @@ exports.view = function(request, response){
       console.log("inserting user to database")
 
       const insertQuery = "INSERT INTO Users (user_name, session_id) VALUES (\"" + name + "\", \"" + session_id+ "\")"
-      connection.query(insertQuery, (err, rows, fields) => {
+      connection.query(insertQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to insert user: " + err)
           res.send("Failed to insert user")
