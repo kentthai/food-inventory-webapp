@@ -98,10 +98,12 @@ exports.view = function(request, response){
         }
 
         if (rows.length == 0) {
-          homes["housesExists"] = false;
+          homes["housesExist"] = false;
         } else {
-          homes["housesExists"] = true;
+          homes["housesExist"] = true;
         }
+
+        console.log(homes)
 
         connection.end();
 

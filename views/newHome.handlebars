@@ -2,75 +2,79 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
-
   </head>
-  <body class="background">
 
+  <body>
     <div class="container">
-
-
-      <div class="qr_display">
-        <h1>Current House Code</h1>
-        <h2>The Boys</h2>
-        <img src="images/other/qr_code.svg" alt="qr code"></img>
-        <p>4K2J17AD</p>
+      <a href="/login">
+        <div class="back">
+          <img src="images/icons/back.svg" alt="back"></img>
+        </div>
+      </a>
+      <h2 class="headerText">New Home</h2>
+      <div>
+        <form role="form" method="post">
+          <input placeholder="Name" type="name" required class="formBox" />
+          <br>
+          <input placeholder="Home Name" type="text" class="formBox"/>
+        </form>
       </div>
 
-      <br />
-
-      <div class="houses">
-        <h1>Your Houses</h1>
-        <div class="house active">
-          The Boys
-        </div>
-
-        <div class="house">
-          Parents' House
-        </div>
+      <div class="tab">
+          <img src="images/other/qr_code.svg" alt="QR Code" class="icon"></img>
       </div>
 
+      <div class="tab">
+          <p class="qrText">4K2J13</p>
+      </div>
 
+      <a href="/home">
+        <div class="buttonShort">
+          <p class="buttonText short white">Next</p>
+        </div>
+      </a>
     </div>
-
-
 
     <div class="navbar">
       <div class="tab">
-        <a href="index.html">
+        <a href="/home">
           <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
         </a>
         <!-- personal -->
       </div>
 
       <div class="tab">
-        <a href="group.html">
+        <a href="/group">
           <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
         </a>
       </div>
 
       <div class="tab">
-        <a href="#camera">
-          <img src="images/icons/cameraGrey.svg" alt="camera" class="icon"></img>
+        <a href="/addForm">
+          <img src="images/icons/addItemGrey.svg" alt="camera" class="icon"></img>
         </a>
       </div>
 
       <div class="tab active">
-        <a href="settings.html">
+        <a href="/settings">
           <img src="images/icons/settings.svg" alt="settings" class="icon"></img>
         </a>
       </div>
     </div>
 
+    <!-- <script src="js/home.js"></script> -->
   </body>
-</html>
 
-<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+</html>
