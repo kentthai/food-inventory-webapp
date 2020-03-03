@@ -12,9 +12,11 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	$('.move').click(moveItem);
+	$('.move_a').click(moveItem_a);
+  $('.move_b').click(moveItem_b);
 
-  $('.remove').click(removeItem);
+  $('.remove_a').click(removeItem_a);
+  $('.remove_b').click(removeItem_b);
 
 	$('.move').click(function() {
 		ga('send', 'event', 'move', 'click');
@@ -25,14 +27,14 @@ function initializePage() {
 	});
 }
 
-function moveItem(e){
+function moveItem_a(e){
 
   //e.preventDefault();
 
   console.log($(this));
 
   // Get the div ID, e.g., "project3"
-	var itemID = $(this).closest('.move').attr('id');
+	var itemID = $(this).closest('.move_a').attr('id');
 	// get rid of 'food' from the front of the id 'food3'
 	var idNumber = itemID.substr('group'.length);
 
@@ -46,18 +48,29 @@ function moveItem(e){
   });
 }
 
-function callBackFn(response) {
-  var id = response["id"];
-	var imageName = response["imageName"];
-	var imageURL = response["imageURL"];
-	console.log(id + " " + imageName + " " + imageURL);
+function moveItem_b(e){
 
-  //$("#project" + id + " .details").html(projectHTML);
-  $(".square #"+id).remove();
-  location.reload();
+  //e.preventDefault();
+
+  console.log($(this));
+
+  // Get the div ID, e.g., "project3"
+	var itemID = $(this).closest('.move_b').attr('id');
+	// get rid of 'food' from the front of the id 'food3'
+	var idNumber = itemID.substr('group'.length);
+
+  console.log("id = " + idNumber)
+
+  $.post("/claim", {"food_id": idNumber}).done(function(response) {
+    console.log("Claim success")
+    location.reload();
+  }).fail(function() {
+    console.log("Error while deleting food item")
+  });
 }
 
-function removeItem(e){
+
+function removeItem_a(e){
 
   //e.preventDefault();
 
@@ -65,7 +78,32 @@ function removeItem(e){
   console.log($(this));
 
   // Get the div ID, e.g., "project3"
-	var itemID = $(this).closest('.remove').attr('id');
+	var itemID = $(this).closest('.remove_a').attr('id');
+  // get rid of 'food' from the front of the id 'food3'
+
+  if (itemID) {
+    var idNumber = itemID.substr('remove'.length);
+
+    console.log("id = " + idNumber)
+
+    $.post("/removeGroup", {"food_id": idNumber}).done(function(response) {
+      console.log("Remove success")
+      location.reload();
+    }).fail(function() {
+      console.log("Error while deleting food item")
+    });
+  }
+}
+
+function removeItem_b(e){
+
+  //e.preventDefault();
+
+  console.log("removing: ");
+  console.log($(this));
+
+  // Get the div ID, e.g., "project3"
+	var itemID = $(this).closest('.remove_b').attr('id');
   // get rid of 'food' from the front of the id 'food3'
 
   if (itemID) {

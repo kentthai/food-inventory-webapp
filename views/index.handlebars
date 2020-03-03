@@ -54,103 +54,121 @@ if (window.performance) {
   </head>
   <body class="background">
 
-    <div class="container">
+
 
       {{#if viewAlt}}
 
-        {{#each foodItems}}
-          <div class="square" id="{{id}}">
-            <div class="picture">
-              <img src="{{imageURL}}" alt="{{imageName}}"></img>
-            </div>
+        <div class="container">
 
-            <div class="options">
-
-              <div class="option" id="share">
-                <img src="images/icons/share.svg" alt="share" class="button move" id="food{{id}}"></img>
+          {{#each foodItems}}
+            <div class="square" id="{{id}}">
+              <div class="picture">
+                <img src="{{imageURL}}" alt="{{imageName}}"></img>
               </div>
 
-              <div class="option" id="remove">
-                <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
+              <div class="options">
+
+                <div class="option" id="share">
+                  <img src="images/icons/share.svg" alt="share" class="button move_b" id="food{{id}}"></img>
+                </div>
+
+                <div class="option" id="remove">
+                  <img src="images/icons/remove.svg" alt="remove" class="button remove_b" id="remove{{id}}"></img>
+                </div>
+
               </div>
-
             </div>
-          </div>
-        {{/each}}
+          {{/each}}
 
-        <div class="addOld">
-          <a href="/addForm_b" class="center">
-            <h3>+</h3>
-          </a>
         </div>
+
+
+        <div class="navbar">
+          <div class="tab active">
+            <a href="/home_b">
+              <img src="images/icons/personal.svg" alt="personal" class="icon"></img>
+            </a>
+            <!-- personal -->
+          </div>
+
+          <div class="tab">
+            <a href="/group_b">
+              <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+            </a>
+          </div>
+
+          <div class="tab">
+            <a href="/addForm_b">
+              <img src="images/icons/addItemGrey.svg" alt="camera" class="icon"></img>
+            </a>
+          </div>
+
+          <div class="tab">
+            <a href="/settings">
+              <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
+            </a>
+          </div>
+        </div>
+
+
 
       {{else}}
 
-        {{#each foodItems}}
-
-          <div class="box" id="{{id}}">
-            {{!-- <div class="picture"> --}}
-            <img src="{{imageURL}}" alt="{{imageName}}" class="picture"></img>
-            {{!-- </div> --}}
-            <div class="boxText">
-              <h2>{{imageName}}</h2>
-            </div>
-
-
-            <div class="options">
-
-              <div class="option" id="share">
-                <img src="images/icons/share.svg" alt="share" class="shareButton move" id="food{{id}}"></img>
+        <div class="container">
+          {{#each foodItems}}
+            <div class="box" id="{{id}}">
+              {{!-- <div class="picture"> --}}
+              <img src="{{imageURL}}" alt="{{imageName}}" class="picture"></img>
+              {{!-- </div> --}}
+              <div class="boxText">
+                <h2>{{imageName}}</h2>
               </div>
 
-              <div class="option" id="remove">
-                <img src="images/icons/remove.svg" alt="remove" class="button remove" id="remove{{id}}"></img>
+
+              <div class="options">
+
+                <div class="option" id="share">
+                  <img src="images/icons/share.svg" alt="share" class="shareButton move_a" id="food{{id}}"></img>
+                </div>
+
+                <div class="option" id="remove">
+                  <img src="images/icons/remove.svg" alt="remove" class="button remove_a" id="remove{{id}}"></img>
+                </div>
+
               </div>
-
             </div>
-          </div>
-
-        {{/each}}
-
-        <div class="add">
-          <a href="/addForm" class="center">
-            <h3>+</h3>
-          </a>
+          {{/each}}
         </div>
 
 
+        <div class="navbar">
+          <div class="tab active">
+            <a href="/home">
+              <img src="images/icons/personal.svg" alt="personal" class="icon"></img>
+            </a>
+            <!-- personal -->
+          </div>
+
+          <div class="tab">
+            <a href="/group">
+              <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+            </a>
+          </div>
+
+          <div class="tab">
+            <a href="/addForm">
+              <img src="images/icons/addItemGrey.svg" alt="camera" class="icon"></img>
+            </a>
+          </div>
+
+          <div class="tab">
+            <a href="/settings">
+              <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
+            </a>
+          </div>
+        </div>
+
       {{/if}}
-
-    </div>
-
-
-
-    <div class="navbar">
-      <div class="tab active">
-        <a href="/home">
-          <img src="images/icons/personal.svg" alt="personal" class="icon"></img>
-        </a>
-        <!-- personal -->
-      </div>
-
-      <div class="tab">
-        <a href="/group">
-          <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
-        </a>
-      </div>
-
-      <div class="tab">
-        <a href="/addForm">
-          <img src="images/icons/addItemGrey.svg" alt="camera" class="icon"></img>
-        </a>
-      </div>
-
-      <div class="tab">
-        <a href="/settings">
-          <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
-        </a>
-      </div>
-    </div>
 
 
     <script src="js/home.js"></script>
