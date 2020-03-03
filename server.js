@@ -82,6 +82,8 @@ app.get('/addForm', addForm.view);
 app.get('/addForm_b', addForm.viewAlt);
 
 app.post('/share', share.view);
+app.post('/claim', claim.view);
+
 
 app.post('/add', add.addPersonal)
 

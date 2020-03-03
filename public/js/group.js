@@ -38,7 +38,12 @@ function moveItem(e){
 
   console.log("id = " + idNumber)
 
-  $.get(url+"/claim/"+idNumber, callBackFn);
+  $.post("/claim", {"food_id": idNumber}).done(function(response) {
+    console.log("Claim success")
+    location.reload();
+  }).fail(function() {
+    console.log("Error while deleting food item")
+  });
 }
 
 function callBackFn(response) {

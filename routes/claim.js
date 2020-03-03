@@ -1,31 +1,76 @@
-var foods = require('../data.json');
+var mysql = require('mysql');
 
-var group = require('../group.json');
+exports.view = function(request, response) {
+  var food_id = request.body.food_id
+  console.log("Claiming food_id: " + food_id)
 
-exports.foodInfo = function(request, response) {
-	var groupFoodID = request.params.id;
-  groupFoodID = parseInt(groupFoodID);
+  const session_id = request.sessionID
+	const user_id = request.session.user_id
+	const home_id = request.session.home_id
 
-  console.log("personal:");
-  console.log(foods["foodItems"]);
+	const connection = mysql.createConnection({
+		host: 'us-cdbr-iron-east-04.cleardb.net',
+		user: 'be8a60e252cf4b',
+		password: 'fac5d6aa',
+		database: 'heroku_b3b87a6bb243c0c'
+	})
 
-  console.log("group: ");
-  console.log(group["foodItems"]);
+	const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" and sharing=true"
+  connection.query(checkExists, function (err, rows, fields) {
+    if (err) {
+      console.log("Failed to query for foods: " + err)
+      res.send("Failed to query for foods")
+      return
+    }
 
-  var latestId = foods["foodItems"].length+1;
+		console.log("Food query callback")
+    console.log(rows)
 
-  var groupFood = group["foodItems"][groupFoodID-1]; // of by one, our first project has index 0
-  groupFood["id"] = latestId.toString();
+    // Case where food exists, so update the sharing boolean and user_id
+    if (rows.length > 0) {
+      console.log("user_id = " + rows[0].user_id)
 
-  foods.foodItems.push(groupFood);
+      const updateQuery = "UPDATE Foods SET sharing=false, user_id=" + user_id + " WHERE food_id=" + food_id
+      connection.query(updateQuery, function (err, rows, fields) {
+        if (err) {
+          console.log("Failed to update foods: " + err)
+          res.send("Failed to update foods")
+          return
+        }
 
-  delete group["foodItems"][groupFoodID-1];
+        console.log("Food update callback")
+        console.log(rows)
+      })
+    }
 
-  delete require.cache[require.resolve('../group.json')]
+    // Food doesn't exist
+    else {
+      console.log("ERROR: Trying to claim a food item that doesn't exist. ID may be incorrect")
+    }
 
-  console.log("group: ");
-  console.log(group["foodItems"]);
+    var data = {"foodItems": []};
 
-  response.json(groupFood);
-	//response.render('index', foods["foodItems"]);
+    const queryString = "SELECT * FROM Foods WHERE home_id=" + home_id + " AND sharing=true"
+    connection.query(queryString, function (err, rows, fields) {
+      if (err) {
+        console.log("Failed to query for foods: " + err)
+        res.send("Failed to query for foods")
+        return
+      }
+
+      console.log("Food query callback")
+      console.log(rows)
+
+      var i;
+      for (i = 0; i < rows.length; i++) {
+        var food_id = rows[i].food_id
+        var food_name = rows[i].food_name
+        data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
+      }
+
+      connection.end();
+
+      response.render('group', data);
+    })
+  })
 }
