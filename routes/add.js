@@ -1,82 +1,57 @@
 var foods = require("../data.json");
 var group = require("../group.json");
 
+var mysql = require('mysql');
+
+
 exports.addPersonal = function(request, response) {
 
-	var name = request.params.name.toString();
-	// var description = request.query.description;
+	const session_id = request.sessionID
+	const food_name = request.body.food_name;
+	const amount = request.body.amount;
+	const expiration = request.body.expiration;
 
-	console.log("name = " + name);
+	const connection = mysql.createConnection({
+		host: 'us-cdbr-iron-east-04.cleardb.net',
+		user: 'be8a60e252cf4b',
+		password: 'fac5d6aa',
+		database: 'heroku_b3b87a6bb243c0c'
+	})
 
-  var imageURL = "images/food/" + name + ".png";
-
-	// Generate id
-	var set = [];
-	var i;
-	for (i = 0; i < foods.foodItems.length; i += 1) {
-		if (foods.foodItems[i] != null) {
-			set.push(parseInt(foods.foodItems[i]["id"]));
+	const insertQuery = "INSERT INTO Foods (food_name, user_id, home_id, amount, expiration) VALUES (\"" + food_name + "\", \"" + 2 + " \", \"" + 2 + "\", \"" + amount+ "\", \"" + expiration+ "\")"
+	connection.query(insertQuery, function (err, rows, fields) {
+		if (err) {
+			console.log("Failed to insert into foods: " + err)
+			res.send("Failed to insert into foods")
+			return
 		}
-	}
-	console.log(set);
 
-	var id = 1;
-	while (set.indexOf(id) >= 0) {
-		id += 1;
-	}
+		console.log("Food insert callback")
+		console.log(rows)
 
-	var food = {
-    "id": id.toString(),
-		"imageName": name,
-		"imageURL": imageURL
-	};
+		var data = {"foodItems": []};
 
-	console.log("food:");
-	console.log(food);
+		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND Users.session_id=\"" + session_id + "\""
+		connection.query(queryString, function (err, rows, fields) {
+			if (err) {
+				console.log("Failed to query for foods: " + err)
+				res.send("Failed to query for foods")
+				return
+			}
 
-	foods.foodItems.push(food);
+			console.log("Food query callback")
+			console.log(rows)
 
-	response.render('index', foods);
-}
+			var i;
+			for (i = 0; i < rows.length; i++) {
+				var foodName = rows[i].food_name
+				data.foodItems.push({"id": i, "imageName": foodName, "imageURL": "images/food/"+foodName+".png"})
+			}
 
+			connection.end();
 
-exports.addGroup = function(request, response) {
+			response.render('index', data);
+		})
 
-	var name = request.params.name.toString();
-	// var description = request.query.description;
-
-	console.log("name = " + name);
-
-	console.log(group);
-	console.log("length = " + group.foodItems.length);
-
-  var imageURL = "images/food/" + name + ".png";
-
-	// Generate id
-	var set = [];
-	var i;
-	for (i = 0; i < group.foodItems.length; i += 1) {
-		if (foods.foodItems[i] != null) {
-			set.push(parseInt(group.foodItems[i]["id"]));
-		}
-	}
-	console.log(set);
-
-	var id = 1;
-	while (set.indexOf(id) >= 0) {
-		id += 1;
-	}
-
-	var food = {
-    "id": id.toString(),
-		"imageName": name,
-		"imageURL": imageURL
-	};
-
-	console.log("food:");
-	console.log(food);
-
-	group.foodItems.push(food);
-
-	response.render('index', group);
+	})
 }

@@ -87,8 +87,7 @@ app.get('/claim/:id', claim.foodInfo);
 app.get('/removePersonal/:id', remove.personal);
 app.get('/removeGroup/:id', remove.group);
 
-app.get('/addPersonal/:name', add.addPersonal);
-app.get('/addGroup/:name', add.addGroup);
+app.post('/add', add.addPersonal)
 
 // Example route
 app.get('/home_b', index.viewAlt);
@@ -107,7 +106,7 @@ app.get('/users', (req, res) => {
   })
 
   const queryString = "SELECT * FROM Users"
-  connection.query(queryString, (err, rows, fields) => {
+  connection.query(queryString, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for users: " + err)
       res.send("Failed to query for users")
@@ -121,8 +120,6 @@ app.get('/users', (req, res) => {
 
 })
 */
-
-console.log("testing database on heroku")
 
 
 http.createServer(app).listen(app.get('port'), function(){
