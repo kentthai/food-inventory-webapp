@@ -58,26 +58,11 @@ function moveItem(e){
   });
 }
 
-function callBackFn(response) {
-  var id = response["id"];
-	var imageName = response["imageName"];
-	var imageURL = response["imageURL"];
-	console.log(id + " " + imageName + " " + imageURL);
-
-  console.log(response);
-
-  //document.write(response);
-
-  //$("#project" + id + " .details").html(projectHTML);
-  //$(".square #"+id).remove();
-  location.reload();
-}
-
 function removeItem(e){
 
   //e.preventDefault();
 
-  console.log("removeItem()");
+  console.log($(this));
 
   // Get the div ID, e.g., "project3"
 	var itemID = $(this).closest('.remove').attr('id');
@@ -86,9 +71,15 @@ function removeItem(e){
 
   console.log("id = " + idNumber)
 
-  $.get(url+"/removePersonal/"+idNumber, removeCallback);
+  //$.get(url+"/removePersonal/"+idNumber, removeCallback);
+  $.post("/remove", {"food_id": idNumber}).done(function(response) {
+    location.reload();
+  }).fail(function() {
+    console.log("Error while deleting food item")
+  });
 }
 
+/*
 function removeCallback(response) {
   var id = response["id"];
 	var imageName = response["imageName"];
@@ -99,10 +90,4 @@ function removeCallback(response) {
   $(".square #"+id).remove();
   location.reload();
 }
-
-
-// Add event listener to remove button
-const container = document.querySelector(".container");
-const add = document.querySelector(".add");
-const cancel = document.querySelector(".CancelButton");
-const ok = document.querySelector(".OkButton");
+*/
