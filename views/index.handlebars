@@ -22,7 +22,30 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-158821739-2', 'auto');
+ga('require','GTM-MR6F264');
 ga('send', 'pageview');
+
+// Feature detects Navigation Timing API support.
+if (window.performance) {
+  // Gets the number of milliseconds since page load
+  // (and rounds the result since the value must be an integer).
+  var timeSincePageLoadMove = Math.round(performance.now());
+
+  // Sends the timing hit to Google Analytics.
+  ga('send', 'timing', 'move', 'click', timeSincePageLoadMove);
+}
+
+// Feature detects Navigation Timing API support.
+if (window.performance) {
+  // Gets the number of milliseconds since page load
+  // (and rounds the result since the value must be an integer).
+  var timeSincePageLoadMoveRemove = Math.round(performance.now());
+
+  // Sends the timing hit to Google Analytics.
+  ga('send', 'timing', 'remove', 'click', timeSincePageLoadRemove);
+}
+
+
 </script>
 <!-- End Google Analytics -->
 
