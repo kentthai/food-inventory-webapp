@@ -6,7 +6,6 @@
 
 var mysql = require('mysql');
 
-
 exports.view = function(request, response){
 	var data = {"foodItems": []};
 	console.log(data);
@@ -24,7 +23,7 @@ exports.view = function(request, response){
   })
 
   const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND Users.session_id=\"" + session_id + "\""
-  connection.query(queryString, (err, rows, fields) => {
+  connection.query(queryString, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)
       res.send("Failed to query for foods")
