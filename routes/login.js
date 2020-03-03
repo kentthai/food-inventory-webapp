@@ -80,9 +80,29 @@ exports.view = function(request, response){
       console.log("Setting session user id to " + rows[0].user_id)
       request.session.user_id = rows[0].user_id;
 
-      connection.end();
+      // Get the list of houses that a user is in
+      housesQuery = "SELECT * FROM Homes, Habitations WHERE Homes.home_id=Habitations.home_id AND Habitations.user_id=\"" + request.session.user_id + "\""
+      connection.query(housesQuery, function (err, rows, fields) {
+        if (err || rows.length <= 0) {
+          console.log("Failed to query for homes: " + err)
+          res.send("Failed to query for homes")
+          return
+        }
 
-      response.render('open', {});
+        homes = {"houses": []}
+        var i;
+        for (i = 0; i < rows.length; i++) {
+          var home_id = rows[i].home_id
+          var home_name = rows[i].home_name
+          homes.houses.push({"id": home_id, "name": home_name})
+        }
+
+        connection.end();
+
+        response.render('open', homes);
+      })
     })
+
+
   })
 };

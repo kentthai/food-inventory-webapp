@@ -1,6 +1,14 @@
 var mysql = require('mysql');
 
 exports.view = function(request, response){
+
+	if (!request.session.user_id) {
+		console.log("User tried to skip login")
+
+		response.render('landing', {})
+		return
+	}
+
 	var data = {"foodItems": []};
 	console.log("group.js view()");
 	data["viewAlt"] = false;
@@ -49,6 +57,13 @@ exports.view = function(request, response){
 
 
 exports.viewAlt = function(request, response){
+
+	if (!request.session.user_id) {
+		console.log("User tried to skip login")
+
+		response.render('landing', {})
+		return
+	}
 
 	var data = {"foodItems": []};
 	console.log("group.js viewAlt()");

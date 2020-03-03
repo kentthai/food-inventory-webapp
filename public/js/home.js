@@ -38,7 +38,7 @@ function initializePage() {
 
 function moveItem(e){
 
-  //e.preventDefault();
+  //e.stopPropagation();
 
   console.log($(this));
 

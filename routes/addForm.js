@@ -1,6 +1,14 @@
 var data = require('../data.json');
 
 exports.view = function(request, response){
+
+	if (!request.session.user_id) {
+		console.log("User tried to skip login")
+
+		response.render('landing', {})
+		return
+	}
+
 	console.log(data);
 
 	data["viewAlt"] = false;
@@ -12,6 +20,14 @@ exports.view = function(request, response){
 };
 
 exports.viewAlt = function(request, response){
+
+	if (!request.session.user_id) {
+		console.log("User tried to skip login")
+
+		response.render('landing', {})
+		return
+	}
+
 	console.log(data);
 
 	data["viewAlt"] = true;
