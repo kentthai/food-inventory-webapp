@@ -81,13 +81,7 @@ app.get('/camera', camera.view);
 app.get('/addForm', addForm.view);
 app.get('/addForm_b', addForm.viewAlt);
 
-//app.get('/share/:id', share.foodInfo);
-//app.get('/claim/:id', claim.foodInfo);
-
 app.post('/share', share.view);
-
-app.get('/removePersonal/:id', remove.personal);
-app.get('/removeGroup/:id', remove.group);
 
 app.post('/add', add.addPersonal)
 
@@ -96,34 +90,6 @@ app.post('/remove', remove.remove)
 // Example route
 app.get('/home_b', index.viewAlt);
 app.get('/group_b', group.viewAlt);
-
-/*
-// database development
-app.get('/users', (req, res) => {
-  console.log("Getting users")
-
-  const connection = mysql.createConnection({
-    host: 'us-cdbr-iron-east-04.cleardb.net',
-    user: 'be8a60e252cf4b',
-    password: 'fac5d6aa',
-    database: 'heroku_b3b87a6bb243c0c'
-  })
-
-  const queryString = "SELECT * FROM Users"
-  connection.query(queryString, function (err, rows, fields) {
-    if (err) {
-      console.log("Failed to query for users: " + err)
-      res.send("Failed to query for users")
-      return
-    }
-
-    console.log("User query callback")
-    res.json(rows)
-    connection.end();
-  })
-
-})
-*/
 
 
 http.createServer(app).listen(app.get('port'), function(){
