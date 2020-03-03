@@ -52,7 +52,7 @@ exports.view = function(request, response){
       console.log("inserting user to database")
 
       const insertQuery = "INSERT INTO Users (user_name, session_id) VALUES (\"" + name + "\", \"" + session_id+ "\")"
-      connection.query(insertQuery, (err, rows, fields) => {
+      connection.query(insertQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to insert user: " + err)
           res.send("Failed to insert user")
