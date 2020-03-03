@@ -1,6 +1,19 @@
 var personal = require('../data.json');
 var group = require('../group.json');
 
+var mysql = require('mysql');
+
+exports.remove = function(request, response) {
+
+  var food_id = request.body.food_id
+  console.log("Removing food_id: " + food_id)
+
+  const session_id = request.sessionID
+	const user_id = request.session.user_id
+  const home_id = request.session.home_id
+
+}
+
 exports.personal = function(request, response) {
 	var foodID = request.params.id;
   foodID = parseInt(foodID);

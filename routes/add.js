@@ -34,7 +34,7 @@ exports.addPersonal = function(request, response) {
 
 		var data = {"foodItems": []};
 
-		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND Users.session_id=\"" + session_id + "\""
+		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Users.session_id=\"" + session_id + "\""
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)
@@ -47,8 +47,9 @@ exports.addPersonal = function(request, response) {
 
 			var i;
 			for (i = 0; i < rows.length; i++) {
-				var foodName = rows[i].food_name
-				data.foodItems.push({"id": i, "imageName": foodName, "imageURL": "images/food/"+foodName+".png"})
+				var food_id = rows[i].food_id
+				var food_name = rows[i].food_name
+				data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
 			}
 
 			connection.end();

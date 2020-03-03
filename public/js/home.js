@@ -1,6 +1,6 @@
 'use strict';
 
-const url = "https://a8-fud.herokuapp.com";
+//const url = "https://a8-fud.herokuapp.com";
 //const url = "http://localhost:3000";
 
 // Call this function when the page loads (the "ready" event)
@@ -39,7 +39,13 @@ function moveItem(e){
 
   console.log("id = " + idNumber)
 
-  $.get(url+"/share/"+idNumber, callBackFn);
+  //$.get(url+"/share/"+idNumber, callBackFn);
+  //$.get("/share/"+idNumber, callBackFn);
+  $.post("/share", {"food_id": idNumber}).done(function(response) {
+    location.reload();
+  }).fail(function() {
+    console.log("Error while moving food item")
+  });
 }
 
 function callBackFn(response) {

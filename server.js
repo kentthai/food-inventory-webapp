@@ -81,13 +81,17 @@ app.get('/camera', camera.view);
 app.get('/addForm', addForm.view);
 app.get('/addForm_b', addForm.viewAlt);
 
-app.get('/share/:id', share.foodInfo);
-app.get('/claim/:id', claim.foodInfo);
+//app.get('/share/:id', share.foodInfo);
+//app.get('/claim/:id', claim.foodInfo);
+
+app.post('/share', share.view);
 
 app.get('/removePersonal/:id', remove.personal);
 app.get('/removeGroup/:id', remove.group);
 
 app.post('/add', add.addPersonal)
+
+app.post('/remove', remove.remove)
 
 // Example route
 app.get('/home_b', index.viewAlt);
