@@ -15,6 +15,14 @@ function initializePage() {
 	$('.move').click(moveItem);
 
   $('.remove').click(removeItem);
+
+	$('.move').click(function() {
+		ga('send', 'event', 'move', 'click');
+	});
+
+	$('.remove').click(function() {
+		ga('send', 'event', 'remove', 'click');
+	});
 }
 
 function moveItem(e){
