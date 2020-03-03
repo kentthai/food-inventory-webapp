@@ -30,7 +30,7 @@
         <h1>Add an item</h1>
         <p>Add as much information as possible!</p>
 
-        <form role="form" method="get" action="/add" >
+        <form role="form" method="get" action="/add" id = "botMargin">
           {{!-- <input id="foodName" placeholder="Food Name" type="text" required name="name"/> --}}
           <h3>Food Type</h3>
           <select id="foodName" class="formBox">
@@ -105,6 +105,33 @@
       </div>
 
 
+    </div>
+
+    <div class="navbar">
+      <div class="tab">
+        <a href="/home">
+          <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
+        </a>
+        <!-- personal -->
+      </div>
+
+      <div class="tab">
+        <a href="/group">
+          <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+        </a>
+      </div>
+
+      <div class="tab">
+        <a href="/addForm">
+          <img src="images/icons/addItem.svg" alt="camera" class="icon"></img>
+        </a>
+      </div>
+
+      <div class="tab active">
+        <a href="/settings">
+          <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
+        </a>
+      </div>
     </div>
 
     <script src="js/addForm.js"></script>
