@@ -19,7 +19,7 @@ exports.view = function(request, response){
   })
 
   const queryString = "SELECT * FROM Users WHERE user_name=\"" + name + "\""
-  connection.query(queryString, (err, rows, fields) => {
+  connection.query(queryString, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for users: " + err)
       res.send("Failed to query for users")
