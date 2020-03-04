@@ -139,6 +139,86 @@ exports.joinHome = function(request, response){
 	response.render('joinHome', {});
 };
 
+exports.joinHomePost = function(request, response){
+	if (!request.session.user_id) {
+		console.log("User tried to skip login")
+
+		response.render('landing', {})
+		return
+	}
+
+	const session_id = request.sessionID
+	const user_id = request.session.user_id
+
+	const home_code = request.body.home_code
+
+	const connection = mysql.createConnection({
+    host: 'us-cdbr-iron-east-04.cleardb.net',
+    user: 'be8a60e252cf4b',
+    password: 'fac5d6aa',
+    database: 'heroku_b3b87a6bb243c0c'
+	})
+
+	// Get the list of home codes to see if match
+	const homeCodeQuery = "SELECT * FROM Homes WHERE home_code=\""+home_code+"\""
+	connection.query(homeCodeQuery, function (err, rows, fields) {
+		if (err) {
+			console.log("Failed to query for home code: " + err)
+			res.send("Failed to query for home code")
+			return
+		}
+
+		// Invalid home code
+		if (rows.length <= 0) {
+			connection.end();
+			response.render('joinHome', {"error": "Invalid home code"});
+		}
+
+		// Valid home code, add user to Habitation
+		else {
+
+			const home_id = rows[0].home_id
+
+			const habitationInsert = "INSERT INTO Habitations (user_id, home_id) VALUES (\"" + user_id + "\", \"" + home_id+ "\")"
+			connection.query(habitationInsert, function (err, rows, fields) {
+				if (err) {
+					console.log("Failed to insert into habitations: " + err)
+					res.send("Failed to insert into habitations")
+					return
+				}
+
+				console.log("Habitations insert callback")
+				console.log(rows)
+
+				var data = {"foodItems": []};
+
+				const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Foods.user_id=\"" + user_id + "\" AND Foods.home_id=\"" + home_id + "\""
+				connection.query(queryString, function (err, rows, fields) {
+					if (err) {
+						console.log("Failed to query for foods: " + err)
+						res.send("Failed to query for foods")
+						return
+					}
+
+					console.log("Food query callback")
+					console.log(rows)
+
+					var i;
+					for (i = 0; i < rows.length; i++) {
+						var food_id = rows[i].food_id
+						var food_name = rows[i].food_name
+						data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
+					}
+
+					connection.end();
+
+					response.render('index', data);
+				})
+			})
+		}
+	})
+};
+
 exports.login = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")

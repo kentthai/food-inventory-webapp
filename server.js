@@ -74,7 +74,7 @@ app.get('/', open.view);
 app.get('/newHome', open.newHome);
 app.post('/newHome', open.newHomePost);
 app.get('/joinHome', open.joinHome);
-//app.post('/joinHome', open.joinHomePost);
+app.post('/joinHome', open.joinHomePost);
 app.get('/login', open.login);
 app.post('/login', login.view);
 
