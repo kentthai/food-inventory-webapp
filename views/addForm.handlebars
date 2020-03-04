@@ -92,16 +92,6 @@
                 <p class="buttonText short white OkButton">Ok</p>
               </div>
             </button>
-            {{!-- <a href="/home_b">
-              <div class="buttonHalf left">
-                <p class="buttonText short white OkButton" id="altAdd">Ok</p>
-              </div>
-            </a>
-            <a href="/home_b">
-              <div class="buttonHalf right">
-                <p class="buttonText short white CancelButton">Cancel</p>
-              </div>
-            </a> --}}
 
           </form>
 
@@ -168,9 +158,68 @@
 
         {{/if}}
 
+
       </div>
 
     </div>
+    {{#if viewAlt}}
 
+      <div class="navbar">
+        <div class="tab">
+          <a href="/home_b">
+            <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
+          </a>
+          <!-- personal -->
+        </div>
+
+        <div class="tab">
+          <a href="/group_b">
+            <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab">
+          <a href="/addForm_b">
+            <img src="images/icons/addItem.svg" alt="camera" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab">
+          <a href="/settings_b">
+            <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
+          </a>
+        </div>
+      </div>
+
+    {{else}}
+
+      <div class="navbar">
+        <div class="tab">
+          <a href="/home">
+            <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
+          </a>
+          <!-- personal -->
+        </div>
+
+        <div class="tab">
+          <a href="/group">
+            <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab active">
+          <a href="/addForm">
+            <img src="images/icons/addItem.svg" alt="camera" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab">
+          <a href="/settings">
+            <img src="images/icons/settingsGrey.svg" alt="settings" class="icon"></img>
+          </a>
+        </div>
+      </div>
+
+    {{/if}}
     {{!-- <script src="js/addForm.js"></script> --}}
   </body>
