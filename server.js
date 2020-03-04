@@ -93,8 +93,8 @@ app.get('/addForm_b', addForm.viewAlt);
 app.post('/share', share.view);
 app.post('/claim', claim.view);
 
-
 app.post('/add', add.addPersonal)
+app.post('/add_b', add.addPersonalAlt)
 
 app.post('/removePersonal', remove.personal)
 app.post('/removeGroup', remove.group)
