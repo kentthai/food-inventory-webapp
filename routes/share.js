@@ -68,6 +68,10 @@ exports.view = function(request, response) {
 				data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
 			}
 
+      if (rows.length == 0) {
+        data["empty"] = true
+      }
+
 			connection.end();
 
 			response.render('index', data);

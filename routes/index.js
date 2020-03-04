@@ -60,6 +60,10 @@ exports.view = function(request, response){
 			data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
 		}
 
+		if (rows.length == 0) {
+			data["empty"] = true
+		}
+
 		connection.end();
 
 		response.render('index', data);
@@ -108,6 +112,10 @@ exports.viewAlt = function(request, response){
 		for (i = 0; i < rows.length; i++) {
 			var foodName = rows[i].food_name
 			data.foodItems.push({"id": i, "imageName": foodName, "imageURL": "images/food/"+foodName+".png"})
+		}
+
+		if (rows.length == 0) {
+			data["empty"] = true
 		}
 
 		connection.end();

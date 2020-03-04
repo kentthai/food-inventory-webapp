@@ -31,7 +31,11 @@ ga('send', 'pageview');
   </head>
   <body class="background">
 
-
+      {{#if empty}}
+        <div class="notification">
+          <div class="message">You have no items currently. Try moving an item from the "Personal" tab by hitting the "Share" button on an item!</div>
+        </div>
+      {{/if}}
 
       {{#if viewAlt}}
 
@@ -54,6 +58,14 @@ ga('send', 'pageview');
             </div>
           {{/each}}
         </div>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
         <div class="navbar">
           <div class="tab">
@@ -109,6 +121,14 @@ ga('send', 'pageview');
             </div>
           {{/each}}
         </div>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
         <div class="navbar">
           <div class="tab">

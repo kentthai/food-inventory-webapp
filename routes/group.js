@@ -48,6 +48,10 @@ exports.view = function(request, response){
 			data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
 		}
 
+		if (rows.length == 0) {
+			data["empty"] = true
+		}
+
 		connection.end();
 
 		response.render('group', data);
@@ -102,6 +106,10 @@ exports.viewAlt = function(request, response){
 			var food_id = rows[i].food_id
 			var food_name = rows[i].food_name
 			data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
+		}
+
+		if (rows.length == 0) {
+			data["empty"] = true
 		}
 
 		connection.end();

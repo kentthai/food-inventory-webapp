@@ -54,7 +54,11 @@ if (window.performance) {
   </head>
   <body class="background">
 
-
+      {{#if empty}}
+        <div class="notification">
+          <div class="message">You have no items currently. Try adding an item with "Add Item" on the navbar!</div>
+        </div>
+      {{/if}}
 
       {{#if viewAlt}}
 
@@ -77,8 +81,15 @@ if (window.performance) {
               </div>
             </div>
           {{/each}}
-
         </div>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
 
         <div class="navbar">
@@ -137,6 +148,15 @@ if (window.performance) {
             </div>
           {{/each}}
         </div>
+
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
 
         <div class="navbar">
