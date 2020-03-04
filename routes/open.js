@@ -55,7 +55,18 @@ exports.newHomePost = function(request, response){
 		// Generate home codes until we find an unused code
 		home_code = "00-00-00"
 		do {
-			home_code = Math.floor(Math.random()*1000000).toString().padStart(6, '0')
+			home_code = Math.floor(Math.random()*1000000).toString()
+
+			if (home_code.length != 6) {
+				var prepend = ""
+				var i
+				for (i = 0; i < 6-home_code.length; i++) {
+					prepend += "0"
+				}
+
+				home_code = prepend + home_code
+			}
+
 			home_code = home_code.slice(0,2) + "-" + home_code.slice(2,4) + "-" + home_code.slice(4)
 			console.log("Generated home code: "+ home_code)
 		} while (home_code in codes);
