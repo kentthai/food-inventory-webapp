@@ -27,12 +27,16 @@ ga('send', 'pageview');
 </head>
 <body class="background">
 
-  <div class="container1 topSpace">
+  <div class="container1 topMargin">
 
-    <img src="images/icons/logo.svg" alt="logo" class="logo" ></img>
+    <a href="/">
+      <div class="back">
+        <img src="images/icons/backWhite.svg" alt="back"></img>
+      </div>
+    </a>
 
     <div class="houses">
-      <h1>Your Houses</h1>
+      <h4>Your Houses</h4>
 
       {{#if housesExist}}
 
@@ -52,17 +56,17 @@ ga('send', 'pageview');
       {{/if}}
     </div>
 
-    <hr/>
+    <h4>New House</h4>
 
     <a href="/joinHome">
-      <div class="button">
-        <p class="buttonText">Join Home</p>
+      <div class="topMargin">
+        <p class="house2">Join Home</p>
       </div>
     </a>
     <br>
     <a href="/newHome">
-      <div class="button">
-        <p class="buttonText">New Home</p>
+      <div>
+        <p class="house2">New Home</p>
       </div>
     </a>
 

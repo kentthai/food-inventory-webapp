@@ -55,6 +55,7 @@ h2 {
   margin: auto;
   margin-top: 20px;
   width: 90%;
+  border: 0;
   background: #FFFFFF;
   border-radius: 6px;
   font-family: 'Montserrat';
@@ -70,6 +71,7 @@ h2 {
 
 .house.active {
   background-color: rgb(149, 255, 62);
+    /* background: #74DB97; */
   /* color: white; */
 }
 

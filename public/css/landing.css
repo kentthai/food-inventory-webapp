@@ -5,7 +5,7 @@
 
 .button {
   margin: auto;
-  width: 270px;
+  width: 70%;
   height: 85px;
   border-radius: 6px;
   box-sizing: border-box;
@@ -94,11 +94,9 @@
 }
 
 .formBox{
-  width: 95%;
+  width: 70%;
   height: 57px;
   background: #FFFFFF;
-  border: 2px solid #000000;
-  box-sizing: border-box;
   margin-bottom: 0em;
   margin-left: auto;
   margin-right: auto;
