@@ -32,8 +32,8 @@ function initializePage() {
 		});
 
 		$('.move_b').click(function() {
-			ga('send', 'event', 'move_a', 'click');
-			ga('send', 'timing', 'move_a', 'click', timeSincePageLoad);
+			ga('send', 'event', 'move_b', 'click');
+			ga('send', 'timing', 'move_b', 'click', timeSincePageLoad);
 		});
 
 		$('.remove_a').click(function() {
