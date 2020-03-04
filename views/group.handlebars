@@ -38,14 +38,12 @@ ga('send', 'pageview');
         <div class="container">
           {{#each foodItems}}
             <div class="square" id="{{id}}">
-              <div class="picture">
-                <img src="{{imageURL}}" alt="{{imageName}}"></img>
-              </div>
+              <img src="{{imageURL}}" alt="{{imageName}}" class="picture"></img>
 
               <div class="options">
 
                 <div class="option" id="claim">
-                  <img src="images/icons/claim.svg" alt="claim" class="button move_b" id="group{{id}}"></img>
+                  <img src="images/icons/claim.svg" alt="claim" class="button move_b claim" id="group{{id}}"></img>
                 </div>
 
                 <div class="option" id="remove">
