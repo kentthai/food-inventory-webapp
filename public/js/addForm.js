@@ -1,12 +1,6 @@
 'use strict';
 
-const url = "https://a8-fud.herokuapp.com";
-//const url = "http://localhost:3000";
-
-
-const container = document.querySelector(".container");
-const add = document.querySelector(".add");
-const cancel = document.querySelector(".CancelButton");
+const amount = document.querySelector(".amount");
 const ok = document.querySelector(".OkButton");
 
 
@@ -18,53 +12,21 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-  // Close form on OK
-  ok.addEventListener('click', addFood);
-  cancel.addEventListener('click', cancel_func);
+  ok.addEventListener('click', validateForm);
 }
 
-// Add event listener to remove button
+// This stuff actually doesn't run since it is not included in the addForm html
 
 
-function addFood (event){
+
+function validateForm (event){
   // event.preventDefault();
   console.log("ok");
-  var foodName = document.getElementById("foodName").value;
+  var amountVal = parseInt(amount.value, 10);
 
-  var regularRoute = (document.getElementById("altAdd") == null);
-
-  console.log("foodName = " + foodName);
-
-  if (regularRoute) {
-    $.get(url+"/addPersonal/"+foodName, addCallback);
-  } else {
-    $.get(url+"/addPersonal/"+foodName, altAddCallback);
+  if (amountVal == NaN) {
+    console.log("Not a number!")
+    event.preventDefault();
   }
 
-}
-
-function addCallback(response) {
-  var id = response["id"];
-  var imageName = response["imageName"];
-  var imageURL = response["imageURL"];
-  console.log(id + " " + imageName + " " + imageURL);
-  window.location.href = "/home";
-  //$("#project" + id + " .details").html(projectHTML);
-  // location.reload();
-}
-
-function altAddCallback(response) {
-  var id = response["id"];
-  var imageName = response["imageName"];
-  var imageURL = response["imageURL"];
-  console.log(id + " " + imageName + " " + imageURL);
-  window.location.href = "/home_b";
-  //$("#project" + id + " .details").html(projectHTML);
-  location.reload();
-}
-
-function cancel_func(response) {
-  console.log('Cancel');
-  window.location.href = "/home";
-  console.log('Cancel2');
 }
