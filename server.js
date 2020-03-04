@@ -72,10 +72,14 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', open.view);
 app.get('/newHome', open.newHome);
+app.post('/newHome', open.newHomePost);
 app.get('/joinHome', open.joinHome);
+//app.post('/joinHome', open.joinHomePost);
 app.get('/login', open.login);
-
 app.post('/login', login.view);
+
+
+app.post('/home', index.view);
 
 app.get('/home', index.view);
 app.get('/settings', settings.view);

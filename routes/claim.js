@@ -15,7 +15,7 @@ exports.view = function(request, response) {
 		database: 'heroku_b3b87a6bb243c0c'
 	})
 
-	const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" and sharing=true"
+	const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" AND sharing=true AND home_id=\"" + home_id + "\""
   connection.query(checkExists, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)

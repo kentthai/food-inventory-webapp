@@ -37,12 +37,12 @@ ga('send', 'pageview');
       {{#if housesExist}}
 
         {{#each houses}}
-        <div class="house" id = {{id}}>
-          <form method="get" action="/home">
-            <input type="hidden" name="home_id" value="{{id}}"/>
-            <button type="submit">{{name}}</button>
-          </form>
-        </div>
+          <div id = {{id}}>
+            <form method="post" action="/home">
+              <input type="hidden" name="home_id" value="{{id}}"/>
+              <button type="submit" class="house">{{name}}</button>
+            </form>
+          </div>
         {{/each}}
 
       {{else}}

@@ -9,7 +9,7 @@ exports.view = function(request, response){
   const session_id = request.sessionID;
   console.log("FOUND SESSION ID: " + session_id);
 
-  console.log("Setting session's userid and homeid")
+  //console.log("Setting session's userid and homeid")
   //request.session.user_id = 2
   request.session.home_id = 2
 

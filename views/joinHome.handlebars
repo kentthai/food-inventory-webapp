@@ -24,19 +24,11 @@
         </div>
       </a>
       <h2 class="headerText">Join Home</h2>
-      <div>
-        <form role="form" method="post">
-          <input placeholder="Room Code" type="text" class="formBox"/>
+        <form role="form" method="post" action="/newHome">
+          <input placeholder="Home Name" type="text" name="home_name" class="formBox"/>
+          <button type="submit" class="buttonShort"><p class="buttonText short white">Next</p></button>
         </form>
-      </div>
-
-      <a href="/home">
-        <div class="buttonShort">
-          <p class="buttonText short white">Next</p>
-        </div>
-      </a>
-
-        <button> Scan Code </button>
+        {{!-- <button> Scan Code </button> --}}
 
     </div>
 

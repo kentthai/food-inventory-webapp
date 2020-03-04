@@ -16,7 +16,7 @@ exports.personal = function(request, response) {
 		database: 'heroku_b3b87a6bb243c0c'
 	})
 
-	const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" and user_id=\"" + user_id + "\" and sharing=false"
+	const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" AND user_id=\"" + user_id + "\" AND home_id=\"" + home_id + "\" AND sharing=false"
   connection.query(checkExists, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)
@@ -51,7 +51,7 @@ exports.personal = function(request, response) {
 
     var data = {"foodItems": []};
 
-		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Users.session_id=\"" + session_id + "\""
+		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Foods.user_id=\"" + user_id + "\" AND Foods.home_id=\"" + home_id + "\""
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)
@@ -92,7 +92,7 @@ exports.group = function(request, response) {
 		database: 'heroku_b3b87a6bb243c0c'
 	})
 
-	const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" and user_id=\"" + user_id + "\" and sharing=true"
+  const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" AND user_id=\"" + user_id + "\" AND home_id=\"" + home_id + "\" AND sharing=true"
   connection.query(checkExists, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)
@@ -127,7 +127,7 @@ exports.group = function(request, response) {
 
     var data = {"foodItems": []};
 
-		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Users.session_id=\"" + session_id + "\""
+		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Foods.user_id=\"" + user_id + "\" AND Foods.home_id=\"" + home_id + "\""
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)

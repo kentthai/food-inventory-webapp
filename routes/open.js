@@ -16,6 +16,118 @@ exports.newHome = function(request, response){
 	response.render('newHome', {});
 };
 
+exports.newHomePost = function(request, response){
+	if (!request.session.user_id) {
+		console.log("User tried to skip login")
+
+		response.render('landing', {})
+		return
+	}
+
+	const session_id = request.sessionID
+	const user_id = request.session.user_id
+
+	const home_name = request.body.home_name
+
+	const connection = mysql.createConnection({
+    host: 'us-cdbr-iron-east-04.cleardb.net',
+    user: 'be8a60e252cf4b',
+    password: 'fac5d6aa',
+    database: 'heroku_b3b87a6bb243c0c'
+	})
+
+	// Get the list of home codes to find an unused code
+	const homeCodeQuery = "SELECT home_code FROM Homes"
+	connection.query(homeCodeQuery, function (err, rows, fields) {
+		if (err) {
+			console.log("Failed to query for home codes: " + err)
+			res.send("Failed to query for home codes")
+			return
+		}
+
+		codes = {}
+		var i;
+		for (i = 0; i < rows.length; i++) {
+			var home_code = rows[i].home_code
+			codes[home_code] = true;
+		}
+
+		// Generate home codes until we find an unused code
+		home_code = "00-00-00"
+		do {
+			home_code = Math.floor(Math.random()*1000000).toString().padStart(6, '0')
+			home_code = home_code.slice(0,2) + "-" + home_code.slice(2,4) + "-" + home_code.slice(4)
+			console.log("Generated home code: "+ home_code)
+		} while (home_code in codes);
+
+		// Insert new home into database
+		const homeInsert = "INSERT INTO Homes (home_name, home_code) VALUES (\"" + home_name + "\", \"" + home_code+ "\")"
+		connection.query(homeInsert, function (err, rows, fields) {
+			if (err) {
+				console.log("Failed to insert into homes: " + err)
+				res.send("Failed to insert into homes")
+				return
+			}
+
+			console.log("Home insert callback")
+      console.log(rows)
+
+			console.log("Searching for home_id for home_code: " + home_code)
+			const homeIdQuery = "SELECT home_id from Homes where home_code=\"" + home_code + "\""
+			connection.query(homeIdQuery, function (err, rows, fields) {
+				if (err) {
+					console.log("Failed to query homes: " + err)
+					res.send("Failed to query homes")
+					return
+				}
+
+				console.log("Home query callback")
+				console.log(rows)
+
+				const home_id = rows[0].home_id
+
+				const habitationInsert = "INSERT INTO Habitations (user_id, home_id) VALUES (\"" + user_id + "\", \"" + home_id+ "\")"
+				connection.query(habitationInsert, function (err, rows, fields) {
+					if (err) {
+						console.log("Failed to insert into homes: " + err)
+						res.send("Failed to insert into homes")
+						return
+					}
+
+					console.log("Home insert callback")
+					console.log(rows)
+
+
+					var data = {"foodItems": []};
+
+					const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Foods.user_id=\"" + user_id + "\" AND Foods.home_id=\"" + home_id + "\""
+					connection.query(queryString, function (err, rows, fields) {
+						if (err) {
+							console.log("Failed to query for foods: " + err)
+							res.send("Failed to query for foods")
+							return
+						}
+
+						console.log("Food query callback")
+						console.log(rows)
+
+						var i;
+						for (i = 0; i < rows.length; i++) {
+							var food_id = rows[i].food_id
+							var food_name = rows[i].food_name
+							data.foodItems.push({"id": food_id, "imageName": food_name, "imageURL": "images/food/"+food_name+".png"})
+						}
+
+						connection.end();
+
+						response.render('index', data);
+					})
+				})
+			})
+		})
+	})
+};
+
 exports.joinHome = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
@@ -44,7 +156,7 @@ exports.login = function(request, response){
 	})
 
 	// Get the list of houses that a user is in
-	housesQuery = "SELECT * FROM Homes, Habitations WHERE Homes.home_id=Habitations.home_id AND Habitations.user_id=\"" + request.session.user_id + "\""
+	const housesQuery = "SELECT * FROM Homes, Habitations WHERE Homes.home_id=Habitations.home_id AND Habitations.user_id=\"" + request.session.user_id + "\""
 	connection.query(housesQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for homes: " + err)

@@ -34,7 +34,7 @@ exports.addPersonal = function(request, response) {
 
 		var data = {"foodItems": []};
 
-		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Users.session_id=\"" + session_id + "\""
+		const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Foods.user_id=\"" + user_id + "\" AND Foods.home_id=\"" + home_id + "\""
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)

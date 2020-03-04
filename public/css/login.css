@@ -68,13 +68,13 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin: auto;
-  margin-top: 26px;
+  /* margin-top: 26px; */
   color: #74DB97;
 }
 
 .short{
   margin: auto;
-  margin-top: 18px;
+  /* margin-top: 18px; */
   font-size: 13px;
   line-height: 16px;
   align-items: center;
