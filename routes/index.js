@@ -110,13 +110,16 @@ exports.viewAlt = function(request, response){
 
 		var i;
 		for (i = 0; i < rows.length; i++) {
+			var food_id = rows[i].food_id
 			var foodName = rows[i].food_name
-			data.foodItems.push({"id": i, "imageName": foodName, "imageURL": "images/food/"+foodName+".png"})
+			data.foodItems.push({"id": food_id, "imageName": foodName, "imageURL": "images/food/"+foodName+".png"})
 		}
 
 		if (rows.length == 0) {
 			data["empty"] = true
 		}
+
+		console.log(data)
 
 		connection.end();
 
