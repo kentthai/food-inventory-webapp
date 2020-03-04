@@ -37,21 +37,34 @@ ga('send', 'pageview');
       <h1>Current House Code</h1>
 
       <div class="qr_display">
-          <h2>The Boys</h2>
+        <h2>{{currentHouseName}}</h2>
         <img src="images/other/qr_code.svg" alt="qr code"></img>
-          <h2>4K2J17AD</h2>
+        <h2>{{currentHouseCode}}</h2>
       </div>
 
       <br />
 
       <div class="houses">
         <h1>Your Houses</h1>
-        {{#each houses}}
-        <div class="house" id = {{id}}>
-          {{name}}
-        </div>
-        {{/each}}
-        <a href="/">
+
+        {{#if housesExist}}
+
+          {{#each houses}}
+            <div id = {{id}}>
+              <form method="post" action="/home">
+                <input type="hidden" name="home_id" value="{{id}}"/>
+                <button type="submit" class="house">{{name}}</button>
+              </form>
+            </div>
+          {{/each}}
+
+        {{else}}
+
+          You are not in any houses currently
+
+        {{/if}}
+
+        <a href="/login">
           <div class="house" id="botMargin" id="0">
             +
           </div>
@@ -65,35 +78,65 @@ ga('send', 'pageview');
 
     </div>
 
+    {{#if viewAlt}}
 
+      <div class="navbar">
+        <div class="tab">
+          <a href="/home_b">
+            <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
+          </a>
+          <!-- personal -->
+        </div>
 
-    <div class="navbar">
-      <div class="tab">
-        <a href="/home">
-          <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
-        </a>
-        <!-- personal -->
+        <div class="tab">
+          <a href="/group_b">
+            <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab">
+          <a href="/addForm_b">
+            <img src="images/icons/addItemGrey.svg" alt="camera" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab active">
+          <a href="/settings_b">
+            <img src="images/icons/settings.svg" alt="settings" class="icon"></img>
+          </a>
+        </div>
       </div>
 
-      <div class="tab">
-        <a href="/group">
-          <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
-        </a>
+    {{else}}
+
+      <div class="navbar">
+        <div class="tab">
+          <a href="/home">
+            <img src="images/icons/personalGrey.svg" alt="personal" class="icon"></img>
+          </a>
+          <!-- personal -->
+        </div>
+
+        <div class="tab">
+          <a href="/group">
+            <img src="images/icons/groupGrey.svg" alt="group" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab">
+          <a href="/addForm">
+            <img src="images/icons/addItemGrey.svg" alt="camera" class="icon"></img>
+          </a>
+        </div>
+
+        <div class="tab active">
+          <a href="/settings">
+            <img src="images/icons/settings.svg" alt="settings" class="icon"></img>
+          </a>
+        </div>
       </div>
 
-      <div class="tab">
-        <a href="/addForm">
-          <img src="images/icons/addItemGrey.svg" alt="camera" class="icon"></img>
-        </a>
-      </div>
-
-      <div class="tab active">
-        <a href="/settings">
-          <img src="images/icons/settings.svg" alt="settings" class="icon"></img>
-        </a>
-      </div>
-    </div>
-
+    {{/if}}
   </body>
 </html>
 

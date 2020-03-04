@@ -23,7 +23,6 @@ exports.view = function(request, response){
 	}
 
 	var data = {"foodItems": []};
-	console.log(data);
 	data["viewAlt"] = false;
 
 	console.log("INDEX SESSION ID")

@@ -78,12 +78,14 @@ app.post('/joinHome', open.joinHomePost);
 app.get('/login', open.login);
 app.post('/login', login.view);
 
-
 app.post('/home', index.view);
 
 app.get('/home', index.view);
+app.get('/home_b', index.viewAlt);
 app.get('/settings', settings.view);
+app.get('/settings_b', settings.viewAlt);
 app.get('/group', group.view);
+app.get('/group_b', group.viewAlt);
 app.get('/camera', camera.view);
 app.get('/addForm', addForm.view);
 app.get('/addForm_b', addForm.viewAlt);
@@ -96,11 +98,6 @@ app.post('/add', add.addPersonal)
 
 app.post('/removePersonal', remove.personal)
 app.post('/removeGroup', remove.group)
-
-// Example route
-app.get('/home_b', index.viewAlt);
-app.get('/group_b', group.viewAlt);
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
