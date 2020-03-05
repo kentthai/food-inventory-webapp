@@ -19,7 +19,7 @@ exports.view = function(request, response) {
   connection.query(checkExists, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)
-      res.send("Failed to query for foods")
+      response.send("Failed to query for foods")
       return
     }
 
@@ -34,7 +34,7 @@ exports.view = function(request, response) {
       connection.query(updateQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to update foods: " + err)
-          res.send("Failed to update foods")
+          response.send("Failed to update foods")
           return
         }
 
@@ -54,7 +54,7 @@ exports.view = function(request, response) {
     connection.query(queryString, function (err, rows, fields) {
       if (err) {
         console.log("Failed to query for foods: " + err)
-        res.send("Failed to query for foods")
+        response.send("Failed to query for foods")
         return
       }
 

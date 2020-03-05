@@ -9,24 +9,24 @@ exports.view = function(request, response){
 		return
 	}
 
-	const user_id = request.session.user_id
-
-	homes = {"houses": []}
-	homes["viewAlt"] = false;
-
 	const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'be8a60e252cf4b',
     password: 'fac5d6aa',
     database: 'heroku_b3b87a6bb243c0c'
-	})
+  })
+
+	const user_id = request.session.user_id
+
+	homes = {"houses": []}
+	homes["viewAlt"] = false;
 
 	// Get the list of houses that a user is in
 	housesQuery = "SELECT * FROM Homes, Habitations WHERE Homes.home_id=Habitations.home_id AND Habitations.user_id=\"" + user_id + "\""
 	connection.query(housesQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for homes: " + err)
-			res.send("Failed to query for homes")
+			response.send("Failed to query for homes")
 			return
 		}
 
@@ -67,25 +67,25 @@ exports.viewAlt = function(request, response){
 		return
 	}
 
+	const connection = mysql.createConnection({
+    host: 'us-cdbr-iron-east-04.cleardb.net',
+    user: 'be8a60e252cf4b',
+    password: 'fac5d6aa',
+    database: 'heroku_b3b87a6bb243c0c'
+	})
+
 	const user_id = request.session.user_id
 	const home_id = request.session.home_id
 
 	homes = {"houses": []}
 	homes["viewAlt"] = true;
 
-	const connection = mysql.createConnection({
-    host: 'us-cdbr-iron-east-04.cleardb.net',
-    user: 'be8a60e252cf4b',
-    password: 'fac5d6aa',
-    database: 'heroku_b3b87a6bb243c0c'
-  })
-
 	// Get the list of houses that a user is in
 	housesQuery = "SELECT * FROM Homes, Habitations WHERE Homes.home_id=Habitations.home_id AND Habitations.user_id=\"" + user_id + "\""
 	connection.query(housesQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for homes: " + err)
-			res.send("Failed to query for homes")
+			response.send("Failed to query for homes")
 			return
 		}
 

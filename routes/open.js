@@ -26,7 +26,6 @@ exports.newHomePost = function(request, response){
 
 	const session_id = request.sessionID
 	const user_id = request.session.user_id
-
 	const home_name = request.body.home_name
 
 	const connection = mysql.createConnection({
@@ -41,7 +40,7 @@ exports.newHomePost = function(request, response){
 	connection.query(homeCodeQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for home codes: " + err)
-			res.send("Failed to query for home codes")
+			response.send("Failed to query for home codes")
 			return
 		}
 
@@ -76,19 +75,20 @@ exports.newHomePost = function(request, response){
 		connection.query(homeInsert, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to insert into homes: " + err)
-				res.send("Failed to insert into homes")
+				response.send("Failed to insert into homes")
 				return
 			}
 
 			console.log("Home insert callback")
       console.log(rows)
 
+			// Query for home_id
 			console.log("Searching for home_id for home_code: " + home_code)
 			const homeIdQuery = "SELECT home_id from Homes where home_code=\"" + home_code + "\""
 			connection.query(homeIdQuery, function (err, rows, fields) {
 				if (err) {
 					console.log("Failed to query homes: " + err)
-					res.send("Failed to query homes")
+					response.send("Failed to query homes")
 					return
 				}
 
@@ -97,25 +97,25 @@ exports.newHomePost = function(request, response){
 
 				const home_id = rows[0].home_id
 
+				// Insert user_id, home_id into Habitations table
 				const habitationInsert = "INSERT INTO Habitations (user_id, home_id) VALUES (\"" + user_id + "\", \"" + home_id+ "\")"
 				connection.query(habitationInsert, function (err, rows, fields) {
 					if (err) {
 						console.log("Failed to insert into homes: " + err)
-						res.send("Failed to insert into homes")
+						response.send("Failed to insert into homes")
 						return
 					}
 
 					console.log("Home insert callback")
 					console.log(rows)
 
-
+					// Load the foods for the home page
 					var data = {"foodItems": []};
-
 					const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Foods.user_id=\"" + user_id + "\" AND Foods.home_id=\"" + home_id + "\""
 					connection.query(queryString, function (err, rows, fields) {
 						if (err) {
 							console.log("Failed to query for foods: " + err)
-							res.send("Failed to query for foods")
+							response.send("Failed to query for foods")
 							return
 						}
 
@@ -164,7 +164,6 @@ exports.joinHomePost = function(request, response){
 
 	const session_id = request.sessionID
 	const user_id = request.session.user_id
-
 	const home_code = request.body.home_code
 
 	const connection = mysql.createConnection({
@@ -179,7 +178,7 @@ exports.joinHomePost = function(request, response){
 	connection.query(homeCodeQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for home code: " + err)
-			res.send("Failed to query for home code")
+			response.send("Failed to query for home code")
 			return
 		}
 
@@ -193,12 +192,20 @@ exports.joinHomePost = function(request, response){
 		else {
 
 			const home_id = rows[0].home_id
+			const query_home_name = rows[0].home_name
 
 			const habitationInsert = "INSERT INTO Habitations (user_id, home_id) VALUES (\"" + user_id + "\", \"" + home_id+ "\")"
 			connection.query(habitationInsert, function (err, rows, fields) {
 				if (err) {
+
+					if (err.code == "ER_DUP_ENTRY") {
+						connection.end();
+						response.render('joinHome', {"error": "You've already joined \"" + query_home_name + "\""});
+						return;
+					}
+
 					console.log("Failed to insert into habitations: " + err)
-					res.send("Failed to insert into habitations")
+					response.send("Failed to insert into habitations")
 					return
 				}
 
@@ -211,7 +218,7 @@ exports.joinHomePost = function(request, response){
 				connection.query(queryString, function (err, rows, fields) {
 					if (err) {
 						console.log("Failed to query for foods: " + err)
-						res.send("Failed to query for foods")
+						response.send("Failed to query for foods")
 						return
 					}
 
@@ -259,7 +266,7 @@ exports.login = function(request, response){
 	connection.query(housesQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for homes: " + err)
-			res.send("Failed to query for homes")
+			response.send("Failed to query for homes")
 			return
 		}
 

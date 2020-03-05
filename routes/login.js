@@ -2,16 +2,13 @@ var mysql = require('mysql');
 
 exports.view = function(request, response){
 
-  console.log("request.body: ")
-  console.log(request.body)
   const name = request.body.name;
-
   const session_id = request.sessionID;
   console.log("FOUND SESSION ID: " + session_id);
 
   //console.log("Setting session's userid and homeid")
   //request.session.user_id = 2
-  request.session.home_id = 2
+  //request.session.home_id = 2
 
 	const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -24,7 +21,7 @@ exports.view = function(request, response){
   connection.query(queryString, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for users: " + err)
-      res.send("Failed to query for users")
+      response.send("Failed to query for users")
       return
     }
 
@@ -39,41 +36,37 @@ exports.view = function(request, response){
       connection.query(updateQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to update users: " + err)
-          res.send("Failed to update users")
+          response.send("Failed to update users")
           return
         }
 
         console.log("User update callback")
         console.log(rows)
-
       })
     }
 
     // New user
     else {
-      console.log("inserting user to database")
+      console.log("Inserting user to database")
 
       const insertQuery = "INSERT INTO Users (user_name, session_id) VALUES (\"" + name + "\", \"" + session_id+ "\")"
       connection.query(insertQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to insert user: " + err)
-          res.send("Failed to insert user")
+          response.send("Failed to insert user")
           return
         }
 
         console.log("User insert callback")
         console.log(rows)
-
       })
     }
-
-    //response.json(rows)
 
     // Query the name again to set the user_id in the session
     connection.query(queryString, function (err, rows, fields) {
       if (err || rows.length <= 0) {
         console.log("Failed to query for users: " + err)
-        res.send("Failed to query for users")
+        response.send("Failed to query for users")
         return
       }
 
@@ -85,7 +78,7 @@ exports.view = function(request, response){
       connection.query(housesQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to query for homes: " + err)
-          res.send("Failed to query for homes")
+          response.send("Failed to query for homes")
           return
         }
 
@@ -110,7 +103,5 @@ exports.view = function(request, response){
         response.render('open', homes);
       })
     })
-
-
   })
 };

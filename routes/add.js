@@ -1,8 +1,4 @@
-var foods = require("../data.json");
-var group = require("../group.json");
-
 var mysql = require('mysql');
-
 
 exports.addPersonal = function(request, response) {
 
@@ -25,7 +21,7 @@ exports.addPersonal = function(request, response) {
 	connection.query(insertQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to insert into foods: " + err)
-			res.send("Failed to insert into foods")
+			response.send("Failed to insert into foods")
 			return
 		}
 
@@ -39,7 +35,7 @@ exports.addPersonal = function(request, response) {
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)
-				res.send("Failed to query for foods")
+				response.send("Failed to query for foods")
 				return
 			}
 
@@ -87,7 +83,7 @@ exports.addPersonalAlt = function(request, response) {
 	connection.query(insertQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to insert into foods: " + err)
-			res.send("Failed to insert into foods")
+			response.send("Failed to insert into foods")
 			return
 		}
 
@@ -101,7 +97,7 @@ exports.addPersonalAlt = function(request, response) {
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)
-				res.send("Failed to query for foods")
+				response.send("Failed to query for foods")
 				return
 			}
 

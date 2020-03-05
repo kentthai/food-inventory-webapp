@@ -1,5 +1,3 @@
-var data = require('../data.json');
-
 exports.view = function(request, response){
 
 	if (!request.session.user_id) {
@@ -9,12 +7,8 @@ exports.view = function(request, response){
 		return
 	}
 
-	console.log(data);
-
+	var data = {"foodItems": []};
 	data["viewAlt"] = false;
-	// console.log(request);
-
-	// console.log(response);
 
 	response.render('addForm', data);
 };
@@ -28,13 +22,8 @@ exports.viewAlt = function(request, response){
 		return
 	}
 
-	console.log(data);
-
+	var data = {"foodItems": []};
 	data["viewAlt"] = true;
-
-	// console.log(request);
-
-	// console.log(response);
 
 	response.render('addForm', data);
 };
