@@ -1,8 +1,4 @@
-var foods = require("../data.json");
-var group = require("../group.json");
-
 var mysql = require('mysql');
-
 
 exports.addPersonal = function(request, response) {
 
