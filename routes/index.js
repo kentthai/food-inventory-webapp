@@ -9,12 +9,19 @@ exports.view = function(request, response){
 		return
 	}
 
+	// Set the home_id in the session based on the value passed in the request body
+	if (request.body.home_id) {
+		request.session.home_id = request.body.home_id
+	}
+
 	const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'be8a60e252cf4b',
     password: 'fac5d6aa',
     database: 'heroku_b3b87a6bb243c0c'
-  })
+	})
+
+	console.log("index.js request.session.home_id = " + request.session.home_id)
 
 	if (!request.session.home_id) {
 		console.log("User has not selected a home")
@@ -46,11 +53,6 @@ exports.view = function(request, response){
 			response.render('open', homes);
 			return;
 		})
-	}
-
-	// Set the home_id in the session based on the value passed in the request body
-	if (request.body.home_id) {
-		request.session.home_id = request.body.home_id
 	}
 
 	var data = {"foodItems": []};
