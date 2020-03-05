@@ -26,7 +26,6 @@ exports.newHomePost = function(request, response){
 
 	const session_id = request.sessionID
 	const user_id = request.session.user_id
-
 	const home_name = request.body.home_name
 
 	const connection = mysql.createConnection({
@@ -164,7 +163,6 @@ exports.joinHomePost = function(request, response){
 
 	const session_id = request.sessionID
 	const user_id = request.session.user_id
-
 	const home_code = request.body.home_code
 
 	const connection = mysql.createConnection({

@@ -2,16 +2,13 @@ var mysql = require('mysql');
 
 exports.view = function(request, response){
 
-  console.log("request.body: ")
-  console.log(request.body)
   const name = request.body.name;
-
   const session_id = request.sessionID;
   console.log("FOUND SESSION ID: " + session_id);
 
   //console.log("Setting session's userid and homeid")
   //request.session.user_id = 2
-  request.session.home_id = 2
+  //request.session.home_id = 2
 
 	const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -45,13 +42,12 @@ exports.view = function(request, response){
 
         console.log("User update callback")
         console.log(rows)
-
       })
     }
 
     // New user
     else {
-      console.log("inserting user to database")
+      console.log("Inserting user to database")
 
       const insertQuery = "INSERT INTO Users (user_name, session_id) VALUES (\"" + name + "\", \"" + session_id+ "\")"
       connection.query(insertQuery, function (err, rows, fields) {
@@ -63,11 +59,8 @@ exports.view = function(request, response){
 
         console.log("User insert callback")
         console.log(rows)
-
       })
     }
-
-    //response.json(rows)
 
     // Query the name again to set the user_id in the session
     connection.query(queryString, function (err, rows, fields) {
@@ -110,7 +103,5 @@ exports.view = function(request, response){
         response.render('open', homes);
       })
     })
-
-
   })
 };
