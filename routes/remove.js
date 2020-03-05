@@ -20,7 +20,7 @@ exports.personal = function(request, response) {
   connection.query(checkExists, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)
-      res.send("Failed to query for foods")
+      response.send("Failed to query for foods")
       return
     }
 
@@ -35,7 +35,7 @@ exports.personal = function(request, response) {
       connection.query(deleteQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to delete food: " + err)
-          res.send("Failed to delete food")
+          response.send("Failed to delete food")
           return
         }
 
@@ -55,7 +55,7 @@ exports.personal = function(request, response) {
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)
-				res.send("Failed to query for foods")
+				response.send("Failed to query for foods")
 				return
 			}
 
@@ -100,7 +100,7 @@ exports.group = function(request, response) {
   connection.query(checkExists, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)
-      res.send("Failed to query for foods")
+      response.send("Failed to query for foods")
       return
     }
 
@@ -115,7 +115,7 @@ exports.group = function(request, response) {
       connection.query(deleteQuery, function (err, rows, fields) {
         if (err) {
           console.log("Failed to delete food: " + err)
-          res.send("Failed to delete food")
+          response.send("Failed to delete food")
           return
         }
 
@@ -135,7 +135,7 @@ exports.group = function(request, response) {
 		connection.query(queryString, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to query for foods: " + err)
-				res.send("Failed to query for foods")
+				response.send("Failed to query for foods")
 				return
 			}
 

@@ -40,7 +40,7 @@ exports.newHomePost = function(request, response){
 	connection.query(homeCodeQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for home codes: " + err)
-			res.send("Failed to query for home codes")
+			response.send("Failed to query for home codes")
 			return
 		}
 
@@ -75,7 +75,7 @@ exports.newHomePost = function(request, response){
 		connection.query(homeInsert, function (err, rows, fields) {
 			if (err) {
 				console.log("Failed to insert into homes: " + err)
-				res.send("Failed to insert into homes")
+				response.send("Failed to insert into homes")
 				return
 			}
 
@@ -88,7 +88,7 @@ exports.newHomePost = function(request, response){
 			connection.query(homeIdQuery, function (err, rows, fields) {
 				if (err) {
 					console.log("Failed to query homes: " + err)
-					res.send("Failed to query homes")
+					response.send("Failed to query homes")
 					return
 				}
 
@@ -102,7 +102,7 @@ exports.newHomePost = function(request, response){
 				connection.query(habitationInsert, function (err, rows, fields) {
 					if (err) {
 						console.log("Failed to insert into homes: " + err)
-						res.send("Failed to insert into homes")
+						response.send("Failed to insert into homes")
 						return
 					}
 
@@ -115,7 +115,7 @@ exports.newHomePost = function(request, response){
 					connection.query(queryString, function (err, rows, fields) {
 						if (err) {
 							console.log("Failed to query for foods: " + err)
-							res.send("Failed to query for foods")
+							response.send("Failed to query for foods")
 							return
 						}
 
@@ -178,7 +178,7 @@ exports.joinHomePost = function(request, response){
 	connection.query(homeCodeQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for home code: " + err)
-			res.send("Failed to query for home code")
+			response.send("Failed to query for home code")
 			return
 		}
 
@@ -205,7 +205,7 @@ exports.joinHomePost = function(request, response){
 					}
 
 					console.log("Failed to insert into habitations: " + err)
-					res.send("Failed to insert into habitations")
+					response.send("Failed to insert into habitations")
 					return
 				}
 
@@ -218,7 +218,7 @@ exports.joinHomePost = function(request, response){
 				connection.query(queryString, function (err, rows, fields) {
 					if (err) {
 						console.log("Failed to query for foods: " + err)
-						res.send("Failed to query for foods")
+						response.send("Failed to query for foods")
 						return
 					}
 
@@ -266,7 +266,7 @@ exports.login = function(request, response){
 	connection.query(housesQuery, function (err, rows, fields) {
 		if (err) {
 			console.log("Failed to query for homes: " + err)
-			res.send("Failed to query for homes")
+			response.send("Failed to query for homes")
 			return
 		}
 
