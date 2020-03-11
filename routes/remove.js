@@ -96,7 +96,7 @@ exports.group = function(request, response) {
 		database: 'heroku_b3b87a6bb243c0c'
 	})
 
-  const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" AND user_id=\"" + user_id + "\" AND home_id=\"" + home_id + "\" AND sharing=true"
+  const checkExists = "SELECT * FROM Foods WHERE food_id=\"" + food_id + "\" AND home_id=\"" + home_id + "\" AND sharing=true"
   connection.query(checkExists, function (err, rows, fields) {
     if (err) {
       console.log("Failed to query for foods: " + err)
@@ -126,7 +126,7 @@ exports.group = function(request, response) {
 
     // Food doesn't exist
     else {
-      console.log("ERROR: Trying to remove a food item that doesn't exist. ID may be incorrect")
+      console.log("ERROR: Trying to remove a food item that doesn't exist. ID may be incorrect: food_id = " + food_id + "  home_id = " + home_id)
     }
 
     var data = {"foodItems": []};
