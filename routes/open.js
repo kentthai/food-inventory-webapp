@@ -9,7 +9,8 @@ exports.newHome = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 
@@ -20,7 +21,8 @@ exports.newHomePost = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 
@@ -147,7 +149,8 @@ exports.joinHome = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 
@@ -158,7 +161,8 @@ exports.joinHomePost = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 
@@ -249,7 +253,8 @@ exports.login = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 

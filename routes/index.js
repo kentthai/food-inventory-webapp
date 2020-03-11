@@ -5,9 +5,12 @@ exports.view = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
+
+	console.log("index.js view()");
 
 	// Set the home_id in the session based on the value passed in the request body
 	if (request.body.home_id) {
@@ -64,7 +67,8 @@ exports.viewAlt = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 

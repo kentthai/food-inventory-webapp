@@ -3,7 +3,8 @@ exports.view = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 
@@ -18,7 +19,8 @@ exports.viewAlt = function(request, response){
 	if (!request.session.user_id) {
 		console.log("User tried to skip login")
 
-		response.render('landing', {})
+		response.redirect('/')
+		//response.render('landing', {})
 		return
 	}
 

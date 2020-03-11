@@ -28,6 +28,10 @@ exports.addPersonal = function(request, response) {
 		console.log("Food insert callback")
 		console.log(rows)
 
+		connection.end();
+		response.redirect('/home')
+
+		/*
 		var data = {"foodItems": []};
 		data["viewAlt"] = false;
 
@@ -57,6 +61,8 @@ exports.addPersonal = function(request, response) {
 
 			response.render('index', data);
 		})
+		*/
+
 
 	})
 }
@@ -90,6 +96,10 @@ exports.addPersonalAlt = function(request, response) {
 		console.log("Food insert callback")
 		console.log(rows)
 
+		connection.end();
+		response.redirect('/home_b')
+
+		/*
 		var data = {"foodItems": []};
 		data["viewAlt"] = true;
 
@@ -119,6 +129,7 @@ exports.addPersonalAlt = function(request, response) {
 
 			response.render('index', data);
 		})
+		*/
 
 	})
 }
