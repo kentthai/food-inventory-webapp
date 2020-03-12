@@ -111,6 +111,9 @@ exports.newHomePost = function(request, response){
 					console.log("Home insert callback")
 					console.log(rows)
 
+					// Set the home_id in the session based on the value passed in the request body
+					request.session.home_id = home_id
+
 					// Load the foods for the home page
 					var data = {"foodItems": []};
 					const queryString = "SELECT * FROM Foods, Users WHERE Foods.user_id=Users.user_id AND sharing=false AND Foods.user_id=\"" + user_id + "\" AND Foods.home_id=\"" + home_id + "\""
@@ -215,6 +218,9 @@ exports.joinHomePost = function(request, response){
 
 				console.log("Habitations insert callback")
 				console.log(rows)
+
+				// Set the home_id in the session based on the value passed in the request body
+				request.session.home_id = home_id
 
 				var data = {"foodItems": []};
 
